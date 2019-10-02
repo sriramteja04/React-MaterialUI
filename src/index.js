@@ -5,6 +5,17 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from './store/store';
+import config from './config/constants.json';
+import Amplify from 'aws-amplify';
+
+Amplify.configure({
+  Auth: {
+    mandatorySignId: true,
+    region: config.cognito.REGION,
+    userPoolId: config.cognito.USER_POOL_ID,
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+  }
+})
 
 ReactDOM.render(
   <Provider store={store}>
