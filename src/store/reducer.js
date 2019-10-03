@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_START:
       return state.set('loading', true);
+
     case actionTypes.LOGIN_SUCCESS:
       const auth_user = {
         loading: false,
@@ -19,6 +20,7 @@ const reducer = (state = initialState, action) => {
         isAuth: true
       };
       return state.merge(auth_user);
+
     case actionTypes.LOGIN_ERROR:
       return state.set('error', action.payload);
     default:

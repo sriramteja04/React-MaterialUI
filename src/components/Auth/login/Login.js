@@ -4,11 +4,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+import { Link as MatLink } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import { login } from '../../../store/actions/actions';
 
 class SignIn extends React.Component {
@@ -29,6 +32,14 @@ class SignIn extends React.Component {
   };
 
   render() {
+    if (this.props.loading) {
+      return <CircularProgress disableShrink />;
+    }
+
+    if (this.props.isAuth) {
+      return <Redirect to='/home' />;
+    }
+
     return (
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
@@ -74,16 +85,17 @@ class SignIn extends React.Component {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href='#' variant='body2'>
+                <MatLink href='#' variant='body2'>
                   Forgot password?
-                </Link>
+                </MatLink>
               </Grid>
               <Grid item>
-                <Link href='#' variant='body2'>
+                <MatLink href='#' variant='body2'>
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </MatLink>
               </Grid>
             </Grid>
+            <Link to='/home'>Home Button</Link>
           </form>
         </div>
       </Container>
@@ -91,8 +103,13 @@ class SignIn extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  isAuth: state.get('isAuth'),
+  loading: state.get('loading')
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   {
     login
   }
