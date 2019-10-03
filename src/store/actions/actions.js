@@ -5,7 +5,7 @@ export const loginStart = () => ({
 });
 
 export const login = (username, password) => ({
-  type: actionTypes.LOGIN_AUTH,
+  type: actionTypes.LOGIN_AUTH_SAGA,
   username,
   password
 });
