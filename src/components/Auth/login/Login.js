@@ -29,6 +29,8 @@ class SignIn extends React.Component {
   submitHandler = async e => {
     e.preventDefault();
     this.props.login(this.state.username, this.state.password);
+    // const user = await Auth.signIn(this.state.username, this.state.password);
+    // console.log(user);
   };
 
   render() {
@@ -43,11 +45,14 @@ class SignIn extends React.Component {
     return (
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
-        <div>
-          <Typography component='h1' variant='h5'>
-            Sign in
-          </Typography>
 
+        <Typography component='h1' variant='h5'>
+          Sign in
+          </Typography>
+        <div>
+          {this.props.error.length > 0 && <div>
+            <h3>{this.props.error}</h3>
+          </div>}
           <form noValidate onSubmit={this.submitHandler}>
             <TextField
               variant='outlined'
@@ -105,7 +110,8 @@ class SignIn extends React.Component {
 
 const mapStateToProps = state => ({
   isAuth: state.get('isAuth'),
-  loading: state.get('loading')
+  loading: state.get('loading'),
+  error: state.get('error')
 });
 
 export default connect(
