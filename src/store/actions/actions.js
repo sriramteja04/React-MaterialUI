@@ -14,3 +14,11 @@ export const loginError = error => ({
   type: actionTypes.LOGIN_ERROR,
   error
 });
+
+export const logout = () => ({
+  type: actionTypes.LOGOUT_START
+});
+
+export const getCurrentUser = () => ({
+  type: actionTypes.GET_CURRENT_USER
+});

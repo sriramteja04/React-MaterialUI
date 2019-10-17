@@ -8,7 +8,6 @@ export function* loginSaga(action) {
   try {
     const user = yield Auth.signIn(action.username, action.password);
     yield console.log(user);
-    yield localStorage.setItem('session', user.Session);
     yield put({
       type: actionTypes.LOGIN_SUCCESS,
       payload: user.username
@@ -18,5 +17,35 @@ export function* loginSaga(action) {
     if (error.code === 'NotAuthorizedException') {
       yield put(loginError(error.message));
     }
+    else if (error.code === 'UserNotFoundException') {
+      yield put(loginError(error.message))
+    }
+  }
+}
+
+export function* logout() {
+  try {
+    yield Auth.signOut();
+    yield put({
+      type: actionTypes.LOGOUT_SUCCESS
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* getCurrentUser() {
+  try {
+    yield Auth.currentSession();
+    const currentUser = yield Auth.currentAuthenticatedUser();
+    yield put({
+      type: actionTypes.GET_CURRENT_USER_SUCCESS,
+      payload: currentUser.username
+    });
+  } catch (error) {
+    console.log(error);
+    yield put({
+      type: actionTypes.GET_CURRENT_USER_FAIL
+    });
   }
 }
