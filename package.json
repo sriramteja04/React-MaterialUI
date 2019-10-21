@@ -29,7 +29,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,scss,html}": [
+    "*.{js,jsx,scss,html,json}": [
       "pretty-quick --staged",
       "git add"
     ]
