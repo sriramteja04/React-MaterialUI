@@ -1,0 +1,17 @@
+.login {
+  text-align: center;
+  font-size: 1rem;
+  width: 30%;
+  margin: 6rem auto;
+
+  .form {
+    height: 30rem;
+    &__heading {
+      margin-top: 1rem;
+    }
+    &__input {
+      width: 60%;
+      margin: 1rem auto;
+    }
+  }
+}
