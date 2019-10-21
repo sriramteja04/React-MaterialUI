@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 const ForgetPassword = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  state = { email: '' };
 
-export default ForgetPassword
+  const emailChageHandler = e => {
+    console.log(e);
+  };
+
+  return (
+    <div>
+      <h3>Forget password Module will run here</h3>
+    </div>
+  );
+};
+
+export default ForgetPassword;

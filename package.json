@@ -6,7 +6,9 @@
     "@material-ui/core": "^4.4.3",
     "@material-ui/icons": "^4.4.3",
     "aws-amplify": "^1.1.40",
+    "aws-sdk": "^2.552.0",
     "immutable": "^4.0.0-rc.12",
+    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
@@ -19,7 +21,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"**/*.+(js|jsx|json|scss|html)\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,scss}": [
+      "pretty-quick --staged",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0"
   }
 }

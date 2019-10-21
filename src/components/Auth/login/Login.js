@@ -1,28 +1,27 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Link as MatLink } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Card from '@material-ui/core/Card';
 
 import { login } from '../../../store/actions/actions';
+import './login.scss';
 
 class SignIn extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
   };
 
   inputChangeHandler = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -39,71 +38,67 @@ class SignIn extends React.Component {
     }
 
     if (this.props.isAuth) {
-      return <Redirect to='/home' />;
+      return <Redirect to="/home" />;
     }
 
     return (
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
-
-        <Typography component='h1' variant='h5'>
-          Sign in
-          </Typography>
+      <Card className={'login'}>
+        <h3 className={'login__heading'}>Sign In</h3>
         <div>
-          {this.props.error.length > 0 && <div>
-            <h3>{this.props.error}</h3>
-          </div>}
-          <form noValidate onSubmit={this.submitHandler}>
-            <TextField
-              variant='outlined'
-              margin='normal'
-              required
-              fullWidth
-              id='username'
-              label='username'
-              name='username'
-              autoComplete='User Name'
-              type='name'
-              autoFocus
-              value={this.state.username}
-              onChange={this.inputChangeHandler}
-            />
-            <TextField
-              variant='outlined'
-              margin='normal'
-              required
-              fullWidth
-              name='password'
-              label='Password'
-              type='password'
-              id='password'
-              autoComplete='current-password'
-              value={this.state.password}
-              onChange={this.inputChangeHandler}
-            />
-            <FormControlLabel
-              control={<Checkbox value='remember' color='primary' />}
-              label='Remember me'
-            />
-            <Button type='submit' fullWidth variant='contained' color='primary'>
+          {this.props.error.length > 0 && (
+            <div>
+              <h3>{this.props.error}</h3>
+            </div>
+          )}
+          <form className={'form'} noValidate onSubmit={this.submitHandler}>
+            <div className={'form__control'}>
+              <TextField
+                className={'form__input'}
+                variant="outlined"
+                required
+                label="username"
+                name="username"
+                placeholder="User Name"
+                type="name"
+                autoFocus
+                value={this.state.username}
+                onChange={this.inputChangeHandler}
+              />
+            </div>
+            <div className={'form__control'}>
+              <TextField
+                className={'form__input'}
+                variant="outlined"
+                required
+                name="password"
+                label="Password"
+                type="password"
+                placeholder="current-password"
+                value={this.state.password}
+                onChange={this.inputChangeHandler}
+              />
+            </div>
+            <div>
+              <FormControlLabel control={<Checkbox />} label={'Remember Me'} />
+            </div>
+            <Button type="submit" variant="contained" color="primary">
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <MatLink href='#' variant='body2'>
+                <MatLink href="#" variant="body2">
                   Forgot password?
                 </MatLink>
               </Grid>
               <Grid item>
-                <MatLink href='#' variant='body2'>
+                <MatLink href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </MatLink>
               </Grid>
             </Grid>
-            <Link to='/home'>Home Button</Link>
           </form>
         </div>
-      </Container>
+      </Card>
     );
   }
 }
@@ -111,12 +106,12 @@ class SignIn extends React.Component {
 const mapStateToProps = state => ({
   isAuth: state.get('isAuth'),
   loading: state.get('loading'),
-  error: state.get('error')
+  error: state.get('error'),
 });
 
 export default connect(
   mapStateToProps,
   {
-    login
+    login,
   }
 )(SignIn);
