@@ -1,7 +1,13 @@
 import React from 'react';
 
 const ForgetPassword = () => {
-  state = { email: '' };
+  state = {
+    email: '',
+    password: '',
+    verificationCode: '',
+    checking: '',
+    redirect: '',
+  };
 
   const emailChageHandler = e => {
     console.log(e);
