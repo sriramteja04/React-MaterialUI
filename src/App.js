@@ -21,14 +21,12 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Navbar />
-        <Container maxWidth="xl">
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <PrivateRouter exact path="/home" component={Home} />
-            <Route component={NotFound} />
-          </Switch>
-        </Container>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Navbar />
+          <PrivateRouter exact path="/home" component={Home} />
+          <Route exact component={NotFound} />
+        </Switch>
       </React.Fragment>
     );
   }

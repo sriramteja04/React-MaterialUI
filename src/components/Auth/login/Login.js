@@ -11,7 +11,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 
 import { login } from '../../../store/actions/actions';
-import './login.scss';
 
 class SignIn extends React.Component {
   state = {
@@ -42,63 +41,55 @@ class SignIn extends React.Component {
     }
 
     return (
-      <Card className={'login'}>
-        <h3 className={'login__heading'}>Sign In</h3>
-        <div>
+      <div className={'heading'}>
+        <Card className={'login'}>
+          <h3 className={'login__heading m-1'}>Login</h3>
           {this.props.error.length > 0 && (
             <div>
               <h3>{this.props.error}</h3>
             </div>
           )}
           <form className={'form'} noValidate onSubmit={this.submitHandler}>
-            <div className={'form__control'}>
+            <div className={'form__control m-1'}>
               <TextField
                 className={'form__input'}
-                variant="outlined"
                 required
                 label="username"
                 name="username"
-                placeholder="User Name"
                 type="name"
-                autoFocus
                 value={this.state.username}
                 onChange={this.inputChangeHandler}
               />
             </div>
-            <div className={'form__control'}>
+            <div className={'form__control m-1'}>
               <TextField
                 className={'form__input'}
-                variant="outlined"
                 required
                 name="password"
                 label="Password"
                 type="password"
-                placeholder="current-password"
                 value={this.state.password}
                 onChange={this.inputChangeHandler}
               />
             </div>
-            <div>
+            <div className={'m-1'}>
               <FormControlLabel control={<Checkbox />} label={'Remember Me'} />
             </div>
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              className={'btn-primary m-1'}
+              type="submit"
+              variant="contained"
+            >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <MatLink href="#" variant="body2">
-                  Forgot password?
-                </MatLink>
-              </Grid>
-              <Grid item>
-                <MatLink href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </MatLink>
-              </Grid>
-            </Grid>
+            <div className={'form__link m-2'}>
+              <MatLink className={'p-1'} href="#" variant="body2">
+                Forgot password?
+              </MatLink>
+            </div>
           </form>
-        </div>
-      </Card>
+        </Card>
+      </div>
     );
   }
 }
