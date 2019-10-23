@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from '../actionTypes';
 
 export const loginStart = () => ({
   type: actionTypes.LOGIN_START,
@@ -9,10 +9,6 @@ export const login = (username, password) => ({
   username,
   password,
 });
-
-const data = date => {
-  console.log('HI');
-};
 
 export const loginError = error => ({
   type: actionTypes.LOGIN_ERROR,

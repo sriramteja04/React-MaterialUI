@@ -10,7 +10,7 @@ import { Link, Redirect } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 
-import { login } from '../../../store/actions/actions';
+import { login } from '../../../modules/Auth/Login/actions';
 
 class SignIn extends React.Component {
   state = {

@@ -1,4 +1,4 @@
-import * as actionTypes from './actions/actionTypes';
+import * as actionTypes from '../actionTypes';
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
@@ -6,7 +6,7 @@ const initialState = fromJS({
   loading: false,
   username: '',
   error: '',
-  isAuthenticating: true
+  isAuthenticating: true,
 });
 
 const reducer = (state = initialState, action) => {
@@ -19,21 +19,21 @@ const reducer = (state = initialState, action) => {
         loading: false,
         username: action.payload,
         isAuth: true,
-        isAuthenticating: false
+        isAuthenticating: false,
       };
       return state.merge(auth_user);
 
     case actionTypes.LOGIN_ERROR:
       const auth_fail = {
         error: action.error,
-        loading: false
-      }
+        loading: false,
+      };
       return state.merge(auth_fail);
 
     case actionTypes.LOGOUT_SUCCESS:
       const logout = {
         username: '',
-        isAuth: false
+        isAuth: false,
       };
       return state.merge(logout);
 
@@ -42,14 +42,14 @@ const reducer = (state = initialState, action) => {
         loading: false,
         username: action.payload,
         isAuthenticating: false,
-        isAuth: true
+        isAuth: true,
       };
       return state.merge(currentUser);
     case actionTypes.GET_CURRENT_USER_FAIL:
       const failedUser = {
         loading: false,
         isAuth: false,
-        isAuthenticating: false
+        isAuthenticating: false,
       };
       return state.merge(failedUser);
     default:

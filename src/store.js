@@ -1,7 +1,7 @@
-import reducer from './reducer';
+import reducer from './modules/Auth/Login/reducer';
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { authSaga } from './saga/index';
+import { authSaga } from './modules/Auth/watchers';
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'
