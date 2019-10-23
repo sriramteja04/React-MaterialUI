@@ -7,9 +7,9 @@ import Login from './components/Auth/login/Login';
 import Home from './components/Home/Home';
 import PrivateRouter from './components/Routers/PrivateRouter';
 import NotFound from './components/Layouts/NotFound';
-import Navbar from './components/Layouts/Navbar';
 import { getCurrentUser } from './modules/Auth/Login/actions';
 import './scss/style.scss';
+import Layout from './components/Layouts/index';
 
 class App extends React.Component {
   async componentDidMount() {
@@ -20,10 +20,11 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Navbar />
         <Switch>
           <Route exact path="/" component={Login} />
-          <PrivateRouter exact path="/home" component={Home} />
+          <Layout>
+            <PrivateRouter exact path="/home" component={Home} />
+          </Layout>
           <Route exact component={NotFound} />
         </Switch>
       </React.Fragment>

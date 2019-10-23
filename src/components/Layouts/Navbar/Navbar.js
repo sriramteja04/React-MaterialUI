@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { logout } from '../../modules/Auth/Login/actions';
+import { logout } from '../../../modules/Auth/Login/actions';
 
 const useStyles = makeStyles(theme => ({
   root: {
