@@ -10,7 +10,7 @@ const composeEnhancers =
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(authSaga);
 

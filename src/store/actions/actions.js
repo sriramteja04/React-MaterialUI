@@ -1,24 +1,28 @@
 import * as actionTypes from './actionTypes';
 
 export const loginStart = () => ({
-  type: actionTypes.LOGIN_START
+  type: actionTypes.LOGIN_START,
 });
 
 export const login = (username, password) => ({
   type: actionTypes.LOGIN_AUTH_SAGA,
   username,
-  password
+  password,
 });
+
+const data = date => {
+  console.log('HI');
+};
 
 export const loginError = error => ({
   type: actionTypes.LOGIN_ERROR,
-  error
+  error,
 });
 
 export const logout = () => ({
-  type: actionTypes.LOGOUT_START
+  type: actionTypes.LOGOUT_START,
 });
 
 export const getCurrentUser = () => ({
-  type: actionTypes.GET_CURRENT_USER
+  type: actionTypes.GET_CURRENT_USER,
 });
