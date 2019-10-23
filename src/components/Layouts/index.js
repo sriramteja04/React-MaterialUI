@@ -1,11 +1,14 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
+
 import Navbar from './Navbar/Navbar';
 
 const Layout = props => {
   return (
     <div>
       <Navbar />
-      {props.children}
+
+      <Container maxWidth={'xl'}>{props.children}</Container>
     </div>
   );
 };
