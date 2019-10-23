@@ -1,7 +1,7 @@
 import { Auth } from 'aws-amplify';
 import { put } from 'redux-saga/effects';
-import * as actionTypes from '../actions/actionTypes';
-import { loginStart, loginError } from '../actions/actions';
+import * as actionTypes from '../actionTypes';
+import { loginStart, loginError } from './actions';
 import * as AWS from 'aws-sdk/global';
 
 export function* loginSaga(action) {
