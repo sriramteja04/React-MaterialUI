@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, IconButton, Typography, Button, Box } from '@material-ui/core'
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  Box,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { logout } from '../../store/actions/actions';
+import { logout } from '../../modules/Auth/Login/actions';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,15 +29,15 @@ const useStyles = makeStyles(theme => ({
   outterBox: {
     display: 'flex',
     width: '100%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   innerBox: {
     display: 'flex',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 }));
 
-const Navbar = (props) => {
+const Navbar = props => {
   const classes = useStyles();
 
   const logoutHandler = () => {
@@ -44,7 +51,12 @@ const Navbar = (props) => {
           <Box className={classes.outterBox}>
             <Box className={classes.innerBox}>
               <Box>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                >
                   <MenuIcon />
                 </IconButton>
               </Box>
@@ -54,35 +66,41 @@ const Navbar = (props) => {
                 </Typography>
               </Box>
             </Box>
-            {props.username &&
+            {props.username && (
               <Box className={classes.innerBox}>
                 <Box>
-                  <Typography color="inherit" variant='h6'>
+                  <Typography color="inherit" variant="h6">
                     {/* <AccountCircleIcon /> */}
                     {props.username} |
                   </Typography>
                 </Box>
                 <Box>
-                  <Button color="inherit"><Link className={classes.logout} onClick={logoutHandler} to='/'>
-                    Logout
-              </Link>
+                  <Button color="inherit">
+                    <Link
+                      className={classes.logout}
+                      onClick={logoutHandler}
+                      to="/"
+                    >
+                      Logout
+                    </Link>
                   </Button>
                 </Box>
-              </Box>}
+              </Box>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({
-  username: state.get('username')
-})
+  username: state.get('username'),
+});
 
 export default connect(
   mapStateToProps,
   {
-    logout
+    logout,
   }
 )(Navbar);
