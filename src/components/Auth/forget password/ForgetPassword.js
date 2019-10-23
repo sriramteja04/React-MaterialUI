@@ -1,11 +1,33 @@
-import React from 'react'
+import React from 'react';
 
 const ForgetPassword = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  state = {
+    email: '',
+    password: '',
+    verificationCode: '',
+    checking: '',
+    redirect: '',
+  };
 
-export default ForgetPassword
+  const emailChageHandler = e => {
+    console.log(e);
+  };
+
+  return (
+    <div>
+      <h3>Forget password Module will run here</h3>
+      <div>
+        <input
+          placeholder={'Email'}
+          name={'email'}
+          type={'text'}
+          onChange={emailChageHandler}
+          value={this.state.email}
+          className={'emailinput'}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default ForgetPassword;
