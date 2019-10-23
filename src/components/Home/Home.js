@@ -6,35 +6,35 @@ import FormControl from '../UI/FormControl';
 
 export class Home extends Component {
   state = {
-    data: []
-  }
+    data: [],
+  };
 
   async componentDidMount() {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts'
+      );
       const data = await response.json();
       this.setState({
-        data
-      })
+        data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
-  render() {
 
+  render() {
     return (
       <div>
         <FormControl />
-        {
-          this.state.data && <Table data={this.state.data} />
-        }
+        {this.state.data && <Table data={this.state.data} />}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  loading: state.get('loading')
+  loading: state.get('loading'),
 });
 
 export default connect(mapStateToProps)(Home);
