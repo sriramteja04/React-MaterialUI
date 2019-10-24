@@ -24,25 +24,25 @@ import 'amazon-cognito-js';
 import * as AWS from 'aws-sdk/global';
 
 // sriramteja aws account cred's
+const REGION = 'us-east-2';
+const USER_POOL_ID = 'us-east-2_3oherUQ0f';
+const CLIENT_ID = '316rlon0p7f76dnn5pcoe91fl4';
 
-// const REGION = "us-east-2";
-// const USER_POOL_ID = 'us-east-2_3oherUQ0f';
-// const CLIENT_ID = '316rlon0p7f76dnn5pcoe91fl4';
-
-const REGION = 'us-west-2';
-const USER_POOL_ID = 'us-west-2_flCJaoDig';
-const CLIENT_ID = '159ufjrihgehb67sn373aotli7';
+// // These belongs to others.
+// const REGION = 'us-west-2';
+// const USER_POOL_ID = 'us-west-2_flCJaoDig';
+// const CLIENT_ID = '159ufjrihgehb67sn373aotli7';
 
 AWS.config.update({
   region: REGION,
 });
 
-export const userData = {
+export const poolData = {
   UserPoolId: USER_POOL_ID,
   ClientId: CLIENT_ID,
 };
 
-export const userPool = new CognitoUserPool(userData);
+export const userPool = new CognitoUserPool(poolData);
 
 export const USERPOOL_ID =
   'cognito-idp.' + REGION + '.amazonaws.com/' + USER_POOL_ID;

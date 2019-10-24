@@ -4,10 +4,11 @@ export const loginStart = () => ({
   type: actionTypes.LOGIN_START,
 });
 
-export const login = (username, password) => ({
+export const login = (username, password, history) => ({
   type: actionTypes.LOGIN_AUTH_SAGA,
   username,
   password,
+  history,
 });
 
 export const loginError = error => ({

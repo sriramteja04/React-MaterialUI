@@ -26,7 +26,8 @@ class SignIn extends React.Component {
 
   submitHandler = async e => {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    const { history } = this.props;
+    this.props.login(this.state.username, this.state.password, history);
     // const user = await Auth.signIn(this.state.username, this.state.password);
     // console.log(user);
   };

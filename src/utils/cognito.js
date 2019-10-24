@@ -5,7 +5,7 @@ import {
 } from 'amazon-cognito-identity-js';
 import * as AWS from 'aws-sdk/global';
 
-import { userData as poolData, userPool } from './login';
+import { poolData, userPool } from './login';
 
 export const authenticate = (username, password) => {
   return new Promise((resolve, reject) => {
@@ -24,7 +24,26 @@ export const authenticate = (username, password) => {
         resolve('new password required');
       },
       onSuccess: function(result) {
-        resolve(result);
+        // To
+        // Edge case, AWS Cognito does not allow for the Logins attr to be dynamically generated. So we must create the loginsObj beforehand
+        // const loginsObj = {
+        // For the object's key name, use the USERPOOL_ID taken from our shared aws_profile js file
+        // For the object's value, use the jwtToken received in the success callback
+        // [USERPOOL_ID]: result.getIdToken().getJwtToken()
+        // };
+        // in order to use other AWS services (such as S3), we need the correct AWS credentials
+        // we set these credentials by passing in a `CognitoIdentityCredentials` object that has our identity pool id and logins object
+        // we are logging into an AWS federated identify pool
+        // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        //     IdentityPoolId : IDENTITY_POOL_ID, // your identity pool id here
+        //     Logins : loginsObj
+        // });
+        // then we refresh our credentials to use the latest one that we set
+        // AWS.config.credentials.refresh(function(){
+        //     console.log(AWS.config.credentials)
+        // });
+        // resolve the promise to move on to next step after authentication
+        resolve();
       },
       onFailure: function(err) {
         reject(err);
