@@ -1,19 +1,20 @@
 import { Auth } from 'aws-amplify';
 import { put } from 'redux-saga/effects';
+
 import * as actionTypes from '../actionTypes';
 import { loginStart, loginError } from './actions';
-import * as AWS from 'aws-sdk/global';
+import { authenticate, logout as userLogout } from '../../../utils/cognito';
 
 export function* loginSaga(action) {
   yield put(loginStart());
   try {
-    const user = yield Auth.signIn(action.username, action.password);
-    yield console.log(user);
+    const user = yield authenticate(action.username, action.password);
+    console.log(user);
     yield put({
       type: actionTypes.LOGIN_SUCCESS,
-      payload: user.username,
+      payload: action.username,
     });
-    console.log(AWS.config);
+    // console.log(AWS.config);
   } catch (error) {
     console.log(error);
     if (error.code === 'NotAuthorizedException') {
@@ -26,7 +27,7 @@ export function* loginSaga(action) {
 
 export function* logout() {
   try {
-    yield Auth.signOut();
+    yield userLogout();
     yield put({
       type: actionTypes.LOGOUT_SUCCESS,
     });
