@@ -26,10 +26,7 @@ class SignIn extends React.Component {
 
   submitHandler = async e => {
     e.preventDefault();
-    const { history } = this.props;
-    this.props.login(this.state.username, this.state.password, history);
-    // const user = await Auth.signIn(this.state.username, this.state.password);
-    // console.log(user);
+    this.props.login(this.state.username, this.state.password);
   };
 
   render() {
@@ -42,9 +39,9 @@ class SignIn extends React.Component {
     }
 
     return (
-      <div className={'heading'}>
-        <Card className={'login'}>
-          <h3 className={'login__heading m-1'}>Login</h3>
+      <div className={'Auth'}>
+        <Card className={'Auth-card'}>
+          <h3 className={'Auth-card__heading m-1'}>Login</h3>
           {this.props.error.length > 0 && (
             <div>
               <h3>{this.props.error}</h3>
@@ -55,7 +52,7 @@ class SignIn extends React.Component {
               <TextField
                 className={'form__input'}
                 required
-                label="username"
+                label="user name"
                 name="username"
                 type="name"
                 value={this.state.username}

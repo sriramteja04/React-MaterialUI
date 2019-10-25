@@ -2,23 +2,24 @@ import { Auth } from 'aws-amplify';
 import { put } from 'redux-saga/effects';
 
 import * as actionTypes from '../actionTypes';
-import { loginStart, loginError } from './actions';
+import { loadingStart, loginError, loadingEnd } from './actions';
 import { authenticate, logout as userLogout } from '../../../utils/cognito';
-
-import { Redirect } from 'react-router-dom';
+import history from '../../../history';
 
 export function* loginSaga(action) {
-  yield put(loginStart());
+  yield put(loadingStart());
   try {
     const res = yield authenticate(action.username, action.password);
     if (res === 'new password required') {
       //Redirect to new password page
-      action.history.push('/newPassword');
+      yield put(loadingEnd());
+      history.push('/newPassword');
+    } else {
+      yield put({
+        type: actionTypes.LOGIN_SUCCESS,
+        payload: action.username,
+      });
     }
-    yield put({
-      type: actionTypes.LOGIN_SUCCESS,
-      payload: action.username,
-    });
     // console.log(AWS.config);
   } catch (error) {
     console.log(error);
