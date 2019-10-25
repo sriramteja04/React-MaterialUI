@@ -6,7 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Link as MatLink } from '@material-ui/core';
 // import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 
@@ -81,9 +81,7 @@ class SignIn extends React.Component {
               Sign In
             </Button>
             <div className={'form__link m-2'}>
-              <MatLink className={'p-1'} href="#" variant="body2">
-                Forgot password?
-              </MatLink>
+              <Link to={'/forgetPassword'}>Forgot password?</Link>
             </div>
           </form>
         </Card>

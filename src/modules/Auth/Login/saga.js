@@ -3,7 +3,11 @@ import { put } from 'redux-saga/effects';
 
 import * as actionTypes from '../actionTypes';
 import { loadingStart, loginError, loadingEnd } from './actions';
-import { authenticate, logout as userLogout } from '../../../utils/cognito';
+import {
+  authenticate,
+  isAuthenticate,
+  logout as userLogout,
+} from '../../../utils/cognito';
 import history from '../../../history';
 
 export function* loginSaga(action) {
@@ -44,16 +48,17 @@ export function* logout() {
 
 export function* getCurrentUser() {
   try {
-    yield Auth.currentSession();
-    const currentUser = yield Auth.currentAuthenticatedUser();
+    yield put(loadingStart());
+    const res = yield isAuthenticate();
     yield put({
-      type: actionTypes.GET_CURRENT_USER_SUCCESS,
-      payload: currentUser.username,
+      type: actionTypes.IS_AUTHENTICATE,
+      payload: res.username,
     });
+    yield put(loadingEnd());
   } catch (error) {
-    console.log(error);
     yield put({
-      type: actionTypes.GET_CURRENT_USER_FAIL,
+      type: actionTypes.IS_AUTHENTICATE_ERROR,
+      payload: error,
     });
   }
 }

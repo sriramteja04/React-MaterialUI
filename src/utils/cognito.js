@@ -56,13 +56,15 @@ export const logout = () => {
   if (AWS && AWS.config && AWS.config.credentials) {
     AWS.config.credentials['user-role'] = [];
   }
-  getCognitoUser()
-    .getCurrentUser()
-    .signOut();
+  getCurrentUser().signOut();
 };
 
 const getCognitoUser = () => {
   return new CognitoUserPool(poolData);
+};
+
+const getCurrentUser = () => {
+  return getCognitoUser().getCurrentUser();
 };
 
 export const newPassword = (username, existingPassword, newPassword) => {
@@ -103,5 +105,21 @@ export const newPassword = (username, existingPassword, newPassword) => {
         reject(err);
       },
     });
+  });
+};
+
+export const isAuthenticate = () => {
+  return new Promise((resolve, reject) => {
+    const cognitoUser = getCurrentUser();
+    if (cognitoUser) {
+      cognitoUser.getSession((err, session) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(cognitoUser);
+      });
+    } else {
+      reject("can't retrieve the Current User");
+    }
   });
 };
