@@ -1,33 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ForgetPassword = () => {
-  state = {
-    email: '',
-    password: '',
-    verificationCode: '',
-    checking: '',
-    redirect: '',
-  };
-
-  const emailChageHandler = e => {
-    console.log(e);
-  };
-
-  return (
-    <div>
-      <h3>Forget password Module will run here</h3>
-      <div>
-        <input
-          placeholder={'Email'}
-          name={'email'}
-          type={'text'}
-          onChange={emailChageHandler}
-          value={this.state.email}
-          className={'emailinput'}
-        />
-      </div>
-    </div>
-  );
-};
+class ForgetPassword extends React.Component {
+  render() {
+    return <div></div>;
+  }
+}
 
 export default ForgetPassword;

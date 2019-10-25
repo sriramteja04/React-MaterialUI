@@ -64,3 +64,44 @@ export const logout = () => {
 const getCognitoUser = () => {
   return new CognitoUserPool(poolData);
 };
+
+export const newPassword = (username, existingPassword, newPassword) => {
+  return new Promise((resolve, reject) => {
+    const authenticationData = {
+      Username: username,
+      Password: existingPassword,
+    };
+
+    const authenticationDetails = new AuthenticationDetails(authenticationData);
+
+    const userData = {
+      Username: username,
+      Pool: userPool,
+    };
+
+    const cognitoUser = new CognitoUser(userData);
+    cognitoUser.authenticateUser(authenticationDetails, {
+      newPasswordRequired: function(userAttributes, requiredAttributes) {
+        // delete userAttributes.email_verified;
+        cognitoUser.completeNewPasswordChallenge(
+          newPassword,
+          requiredAttributes,
+          {
+            onSuccess: function(result) {
+              resolve(result);
+            },
+            onFailure: function(result) {
+              reject(result);
+            },
+          }
+        );
+      },
+      onSuccess: function(result) {
+        resolve(result);
+      },
+      onFailure: function(err) {
+        reject(err);
+      },
+    });
+  });
+};

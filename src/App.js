@@ -9,12 +9,13 @@ import { getCurrentUser } from './modules/Auth/Login/actions';
 import './scss/style.scss';
 import Layout from './components/Layouts/index';
 
-import Login from './components/Auth/login/Login';
 import Home from './components/Home/Home';
 import NewPassword from './components/Auth/New Password/NewPassword';
+import ForgetPassword from './components/Auth/forget password/ForgetPassword';
+import Login from './components/Auth/login/Login';
 
 class App extends React.Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.getCurrentUser();
   }
 
@@ -23,8 +24,9 @@ class App extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <Switch>
-          <Route exact path="/" component={Login} />
           <Route exact path={'/newPassword'} component={NewPassword} />
+          <Route exact path={'/forgetPassword'} component={ForgetPassword} />
+          <Route exact path={'/'} component={Login} />
           <Layout>
             <PrivateRouter exact path="/home" component={Home} />
           </Layout>
