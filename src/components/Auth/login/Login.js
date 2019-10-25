@@ -4,9 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Link as MatLink } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 
@@ -27,8 +27,6 @@ class SignIn extends React.Component {
   submitHandler = async e => {
     e.preventDefault();
     this.props.login(this.state.username, this.state.password);
-    // const user = await Auth.signIn(this.state.username, this.state.password);
-    // console.log(user);
   };
 
   render() {
@@ -41,9 +39,9 @@ class SignIn extends React.Component {
     }
 
     return (
-      <div className={'heading'}>
-        <Card className={'login'}>
-          <h3 className={'login__heading m-1'}>Login</h3>
+      <div className={'Auth'}>
+        <Card className={'Auth-card'}>
+          <h3 className={'Auth-card__heading m-1'}>Login</h3>
           {this.props.error.length > 0 && (
             <div>
               <h3>{this.props.error}</h3>
@@ -54,7 +52,7 @@ class SignIn extends React.Component {
               <TextField
                 className={'form__input'}
                 required
-                label="username"
+                label="user name"
                 name="username"
                 type="name"
                 value={this.state.username}
@@ -83,9 +81,7 @@ class SignIn extends React.Component {
               Sign In
             </Button>
             <div className={'form__link m-2'}>
-              <MatLink className={'p-1'} href="#" variant="body2">
-                Forgot password?
-              </MatLink>
+              <Link to={'/forgetPassword'}>Forgot password?</Link>
             </div>
           </form>
         </Card>

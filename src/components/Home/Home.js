@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Table from '../UI/Table';
 import FormControl from '../UI/FormControl';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export class Home extends Component {
   state = {
@@ -10,7 +11,6 @@ export class Home extends Component {
   };
 
   async componentDidMount() {
-    console.log(this.props);
     try {
       const response = await fetch(
         'https://jsonplaceholder.typicode.com/posts'
@@ -25,6 +25,10 @@ export class Home extends Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <CircularProgress disableShrink />;
+    }
+
     return (
       <div>
         <FormControl />

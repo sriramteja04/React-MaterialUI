@@ -1,19 +1,30 @@
 import { Auth } from 'aws-amplify';
 import { put } from 'redux-saga/effects';
+
 import * as actionTypes from '../actionTypes';
-import { loginStart, loginError } from './actions';
-import * as AWS from 'aws-sdk/global';
+import { loadingStart, loginError, loadingEnd } from './actions';
+import {
+  authenticate,
+  isAuthenticate,
+  logout as userLogout,
+} from '../../../utils/cognito';
+import history from '../../../history';
 
 export function* loginSaga(action) {
-  yield put(loginStart());
+  yield put(loadingStart());
   try {
-    const user = yield Auth.signIn(action.username, action.password);
-    yield console.log(user);
-    yield put({
-      type: actionTypes.LOGIN_SUCCESS,
-      payload: user.username,
-    });
-    console.log(AWS.config);
+    const res = yield authenticate(action.username, action.password);
+    if (res === 'new password required') {
+      //Redirect to new password page
+      yield put(loadingEnd());
+      history.push('/newPassword');
+    } else {
+      yield put({
+        type: actionTypes.LOGIN_SUCCESS,
+        payload: action.username,
+      });
+    }
+    // console.log(AWS.config);
   } catch (error) {
     console.log(error);
     if (error.code === 'NotAuthorizedException') {
@@ -26,7 +37,7 @@ export function* loginSaga(action) {
 
 export function* logout() {
   try {
-    yield Auth.signOut();
+    yield userLogout();
     yield put({
       type: actionTypes.LOGOUT_SUCCESS,
     });
@@ -37,16 +48,17 @@ export function* logout() {
 
 export function* getCurrentUser() {
   try {
-    yield Auth.currentSession();
-    const currentUser = yield Auth.currentAuthenticatedUser();
+    yield put(loadingStart());
+    const res = yield isAuthenticate();
     yield put({
-      type: actionTypes.GET_CURRENT_USER_SUCCESS,
-      payload: currentUser.username,
+      type: actionTypes.IS_AUTHENTICATE,
+      payload: res.username,
     });
+    yield put(loadingEnd());
   } catch (error) {
-    console.log(error);
     yield put({
-      type: actionTypes.GET_CURRENT_USER_FAIL,
+      type: actionTypes.IS_AUTHENTICATE_ERROR,
+      payload: error,
     });
   }
 }
