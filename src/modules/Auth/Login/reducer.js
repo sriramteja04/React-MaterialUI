@@ -55,6 +55,7 @@ const reducer = (state = initialState, action) => {
         isAuth: true,
       };
       return state.merge(currentUser);
+
     case actionTypes.GET_CURRENT_USER_FAIL:
       const failedUser = {
         loading: false,
@@ -69,7 +70,24 @@ const reducer = (state = initialState, action) => {
         loading: false,
         isAuth: false,
       };
-      state.merge(error);
+      return state.merge(error);
+
+    case actionTypes.IS_AUTHENTICATE:
+      const search = {
+        isAuth: true,
+        loading: false,
+        username: action.payload,
+      };
+      return state.merge(search);
+
+    case actionTypes.IS_AUTHENTICATE_ERROR:
+      const is_Auth_Error = {
+        loading: false,
+        error: action.payload,
+        isAuth: false,
+      };
+      return state.merge(is_Auth_Error);
+
     default:
       return state;
   }
