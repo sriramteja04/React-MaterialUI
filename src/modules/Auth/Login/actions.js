@@ -1,13 +1,17 @@
 import * as actionTypes from '../actionTypes';
 
-export const loginStart = () => ({
-  type: actionTypes.LOGIN_START,
+export const loadingStart = () => ({
+  type: actionTypes.LOADING_START,
 });
 
 export const login = (username, password) => ({
   type: actionTypes.LOGIN_AUTH_SAGA,
   username,
   password,
+});
+
+export const loadingEnd = () => ({
+  type: actionTypes.LOADING_END,
 });
 
 export const loginError = error => ({

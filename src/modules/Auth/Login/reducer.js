@@ -11,8 +11,11 @@ const initialState = fromJS({
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOGIN_START:
+    case actionTypes.LOADING_START:
       return state.set('loading', true);
+
+    case actionTypes.LOADING_END:
+      return state.set('loading', false);
 
     case actionTypes.LOGIN_SUCCESS:
       const auth_user = {
@@ -22,6 +25,13 @@ const reducer = (state = initialState, action) => {
         isAuthenticating: false,
       };
       return state.merge(auth_user);
+
+    case actionTypes.COMPLETE_NEW_PASSWORD_SUCCESS:
+      const newPassword = {
+        isAuth: true,
+        username: action.payload,
+      };
+      return state.merge(newPassword);
 
     case actionTypes.LOGIN_ERROR:
       const auth_fail = {
@@ -45,6 +55,7 @@ const reducer = (state = initialState, action) => {
         isAuth: true,
       };
       return state.merge(currentUser);
+
     case actionTypes.GET_CURRENT_USER_FAIL:
       const failedUser = {
         loading: false,
@@ -52,6 +63,31 @@ const reducer = (state = initialState, action) => {
         isAuthenticating: false,
       };
       return state.merge(failedUser);
+
+    case actionTypes.NEW_PASSWORD_ERROR:
+      const error = {
+        error: action.payload,
+        loading: false,
+        isAuth: false,
+      };
+      return state.merge(error);
+
+    case actionTypes.IS_AUTHENTICATE:
+      const search = {
+        isAuth: true,
+        loading: false,
+        username: action.payload,
+      };
+      return state.merge(search);
+
+    case actionTypes.IS_AUTHENTICATE_ERROR:
+      const is_Auth_Error = {
+        loading: false,
+        error: action.payload,
+        isAuth: false,
+      };
+      return state.merge(is_Auth_Error);
+
     default:
       return state;
   }
