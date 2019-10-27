@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import { login } from '../../../modules/Auth/Login/actions';
 
@@ -16,17 +17,26 @@ class SignIn extends React.Component {
   state = {
     username: '',
     password: '',
+    inputError: '',
   };
 
   inputChangeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value,
+      inputError: '',
     });
   };
 
-  submitHandler = async e => {
+  submitHandler = e => {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    if (this.state.username && this.state.password) {
+      //Authenticate User
+      this.props.login(this.state.username, this.state.password);
+    } else {
+      this.setState({
+        inputError: 'Please Enter User name and Password',
+      });
+    }
   };
 
   render() {
@@ -42,26 +52,41 @@ class SignIn extends React.Component {
       <div className={'Auth'}>
         <Card className={'Auth-card'}>
           <h3 className={'Auth-card__heading m-1'}>Login</h3>
-          {this.props.error.length > 0 && (
+          {this.props.error && (
             <div>
-              <h3>{this.props.error}</h3>
+              <p className={'error'}>{this.props.error}</p>
+            </div>
+          )}
+          {this.state.inputError && (
+            <div>
+              <p className={'error'}>{this.state.inputError}</p>
             </div>
           )}
           <form className={'form'} noValidate onSubmit={this.submitHandler}>
             <div className={'form__control m-1'}>
+              <AccountCircleIcon className={'form__icon'} />
               <TextField
-                className={'form__input'}
+                className={
+                  !this.state.inputError && !this.props.error
+                    ? 'form__input'
+                    : ' form__input error'
+                }
                 required
                 label="user name"
                 name="username"
                 type="name"
                 value={this.state.username}
                 onChange={this.inputChangeHandler}
+                aria-describedby="component-error-text"
               />
             </div>
             <div className={'form__control m-1'}>
               <TextField
-                className={'form__input'}
+                className={
+                  !this.state.inputError && !this.props.error
+                    ? 'form__input'
+                    : ' form__input error'
+                }
                 required
                 name="password"
                 label="Password"
