@@ -10,6 +10,7 @@ import { Redirect, Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
 
 import { login } from '../../../modules/Auth/Login/actions';
 
@@ -69,7 +70,7 @@ class SignIn extends React.Component {
                 className={
                   !this.state.inputError && !this.props.error
                     ? 'form__input'
-                    : ' form__input error'
+                    : 'form__input error'
                 }
                 required
                 label="user name"
@@ -81,11 +82,12 @@ class SignIn extends React.Component {
               />
             </div>
             <div className={'form__control m-1'}>
+              <LockIcon className={'form__icon'} />
               <TextField
                 className={
                   !this.state.inputError && !this.props.error
                     ? 'form__input'
-                    : ' form__input error'
+                    : 'form__input error'
                 }
                 required
                 name="password"
