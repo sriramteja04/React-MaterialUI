@@ -6,7 +6,8 @@ const initialState = fromJS({
   loading: false,
   username: '',
   error: '',
-  isAuthenticating: true,
+  getUserError: '',
+  resendError: '',
 });
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +23,6 @@ const reducer = (state = initialState, action) => {
         loading: false,
         username: action.payload,
         isAuth: true,
-        isAuthenticating: false,
       };
       return state.merge(auth_user);
 
@@ -51,7 +51,6 @@ const reducer = (state = initialState, action) => {
       const currentUser = {
         loading: false,
         username: action.payload,
-        isAuthenticating: false,
         isAuth: true,
       };
       return state.merge(currentUser);
@@ -60,7 +59,6 @@ const reducer = (state = initialState, action) => {
       const failedUser = {
         loading: false,
         isAuth: false,
-        isAuthenticating: false,
       };
       return state.merge(failedUser);
 
@@ -83,10 +81,18 @@ const reducer = (state = initialState, action) => {
     case actionTypes.IS_AUTHENTICATE_ERROR:
       const is_Auth_Error = {
         loading: false,
-        error: action.payload,
+        getUserError: action.payload,
         isAuth: false,
       };
       return state.merge(is_Auth_Error);
+
+    // case actionTypes.RESEND_CODE_SUCCESS:
+    //   const resendCode =
+    case actionTypes.RESEND_CODE_ERROR:
+      const resendError = {
+        resendError: action.payload,
+      };
+      return state.merge(resendError);
 
     default:
       return state;
