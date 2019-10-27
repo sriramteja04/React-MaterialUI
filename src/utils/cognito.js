@@ -123,3 +123,24 @@ export const isAuthenticate = () => {
     }
   });
 };
+
+export const resendCode = username => {
+  return new Promise((resolve, reject) => {
+    const userData = {
+      Username: username,
+      Pool: userPool,
+    };
+    const cognitoUser = new CognitoUser(userData);
+    cognitoUser.forgotPassword({
+      onSuccess: function() {
+        resolve();
+      },
+      inputVerificationCode: function() {
+        resolve();
+      },
+      onFailure: function(err) {
+        reject(err);
+      },
+    });
+  });
+};
