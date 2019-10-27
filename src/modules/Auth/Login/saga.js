@@ -48,13 +48,16 @@ export function* logout() {
 
 export function* getCurrentUser() {
   try {
+    console.log('started....');
     yield put(loadingStart());
     const res = yield isAuthenticate();
+    console.log('is Authenticated');
+    yield put(loadingEnd());
     yield put({
       type: actionTypes.IS_AUTHENTICATE,
       payload: res.username,
     });
-    yield put(loadingEnd());
+    console.log('end loading...');
   } catch (error) {
     yield put({
       type: actionTypes.IS_AUTHENTICATE_ERROR,

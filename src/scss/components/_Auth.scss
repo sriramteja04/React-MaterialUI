@@ -10,7 +10,7 @@
   position: relative;
 
   .Auth-card {
-    width: 24rem;
+    width: 25rem;
     height: auto;
     position: absolute;
     top: 40%;
@@ -24,6 +24,11 @@
       color: #28b485;
       margin-bottom: 2rem;
     }
+    .error {
+      color: #ff8a82;
+      font-size: 1rem;
+      font-weight: 500;
+    }
   }
 }
 
@@ -33,12 +38,18 @@
   &__control {
     .form__input {
       width: 90%;
+      &.error {
+        border-bottom: 1px solid #ff8a82;
+      }
+    }
+    .form__icon {
+      margin: auto 0;
     }
   }
   .btn-primary {
     background-color: #f7c568;
     cursor: pointer;
-    margin-top: 1rem;
+    margin: 1rem;
     &:hover {
       background-color: darken(#f7c568, 15%);
     }
@@ -47,6 +58,7 @@
     cursor: pointer;
     a {
       text-decoration: none;
+      padding: 1rem;
       &:hover {
         text-decoration: none;
         background-color: #d1d0cf;

@@ -14,6 +14,7 @@ import Home from './components/Home/Home';
 import NewPassword from './components/Auth/New Password/NewPassword';
 import ForgetPassword from './components/Auth/forget password/ForgetPassword';
 import Login from './components/Auth/login/Login';
+import Verification from './components/Auth/forget password/Verification';
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends React.Component {
   render() {
     if (this.props.loading) {
       console.log('loading..........');
+      console.log(this.props);
       return <CircularProgress disableShrink />;
     }
 
@@ -32,6 +34,11 @@ class App extends React.Component {
         <Switch>
           <Route exact path={'/newPassword'} component={NewPassword} />
           <Route exact path={'/forgetPassword'} component={ForgetPassword} />
+          <Route
+            excat
+            path={'/forgetPassword/:username'}
+            component={Verification}
+          />
           <Route exact path={'/'} component={Login} />
           <Layout>
             <PrivateRouter exact path="/home" component={Home} />
@@ -45,7 +52,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   loading: state.get('loading'),
-  error: state.get('error'),
+  getUserError: state.get('error'),
 });
 
 export default connect(
