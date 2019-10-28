@@ -3,6 +3,7 @@ export const LOADING_END = 'LOADING_END';
 export const LOGIN_AUTH_SAGA = 'LOGIN_AUTH_SAGA';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const DISABLE_ERROR = 'DISABLE_ERROR';
 
 export const LOGOUT_START = 'LOGOUT_START';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
