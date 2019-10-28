@@ -8,6 +8,7 @@ const initialState = fromJS({
   error: '',
   getUserError: '',
   resendError: '',
+  newPasswordError: '',
 });
 
 const reducer = (state = initialState, action) => {
@@ -64,7 +65,7 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.NEW_PASSWORD_ERROR:
       const error = {
-        error: action.payload,
+        newPasswordError: action.payload,
         loading: false,
         isAuth: false,
       };
