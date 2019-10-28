@@ -1,70 +1,70 @@
 .Auth {
-  height: 100vh;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(#7ed56f, 0.8),
-    rgba(#28b485, 0.8)
-  );
-  background-size: cover;
-  background-position: top;
-  position: relative;
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8));
+    background-size: cover;
+    background-position: top;
+    position: relative;
 
-  .Auth-card {
-    width: 25rem;
-    height: auto;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    .Auth-card {
+        width: 25rem;
+        height: auto;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
 
-    &__heading {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #28b485;
-      margin-bottom: 2rem;
+        &__heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28b485;
+            margin-bottom: 2rem;
+        }
+        .error {
+            color: #ff8a82;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1rem auto;
+            width: 75%;
+        }
     }
-    .error {
-      color: #ff8a82;
-      font-size: 1rem;
-      font-weight: 500;
-      margin: 1rem auto;
-      width: 75%;
-    }
-  }
 }
 
 .form {
-  width: 90%;
-  margin: auto;
-  &__control {
-    .form__input {
-      width: 90%;
-      &.error {
-        border-bottom: 1px solid #ff8a82;
-      }
+    width: 90%;
+    margin: auto;
+    &__control {
+        .form__input {
+            width: 90%;
+            ::after {
+            }
+            &.error {
+                margin: 0;
+                border-bottom: 1px solid #ff8a82;
+            }
+        }
+        .form__icon {
+            margin: 1.2rem 0.5rem 0 0;
+        }
     }
-    .form__icon {
-      margin: 1.2rem 0.5rem 0 0;
+    .btn-primary {
+        background-color: #f7c568;
+        cursor: pointer;
+        margin: 1rem;
+        &:hover {
+            background-color: darken(#f7c568, 15%);
+        }
     }
-  }
-  .btn-primary {
-    background-color: #f7c568;
-    cursor: pointer;
-    margin: 1rem;
-    &:hover {
-      background-color: darken(#f7c568, 15%);
+    &__link {
+        cursor: pointer;
+        a {
+            text-decoration: none;
+            padding: 1rem;
+            color: inherit;
+            &:hover {
+                text-decoration: none;
+                background-color: #d1d0cf;
+            }
+        }
     }
-  }
-  &__link {
-    cursor: pointer;
-    a {
-      text-decoration: none;
-      padding: 1rem;
-      &:hover {
-        text-decoration: none;
-        background-color: #d1d0cf;
-      }
-    }
-  }
 }
