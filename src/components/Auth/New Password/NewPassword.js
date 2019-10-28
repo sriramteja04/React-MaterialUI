@@ -43,6 +43,10 @@ export class NewPassword extends Component {
     return (
       <div className={'Auth'}>
         <Card className={'Auth-card'}>
+          {this.props.newPasswordError && (
+            <p className={'error'}>{this.props.newPasswordError}</p>
+          )}
+
           <h3 className={'Auth-card__heading m-1'}>Change Password</h3>
           <form className={'form'} noValidate onSubmit={this.submitHandler}>
             <div className={'form__control m-1'}>
@@ -105,7 +109,7 @@ export class NewPassword extends Component {
 const mapStateToProps = state => ({
   isAuth: state.get('isAuth'),
   loading: state.get('loading'),
-  error: state.get('error'),
+  newPasswordError: state.get('newPasswordError'),
 });
 
 export default connect(
