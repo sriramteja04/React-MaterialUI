@@ -23,8 +23,8 @@ class App extends React.Component {
 
   render() {
     if (this.props.loading) {
-      console.log('loading..........');
-      console.log(this.props);
+      // console.log('loading..........');
+      // console.log(this.props);
       return <CircularProgress disableShrink />;
     }
 

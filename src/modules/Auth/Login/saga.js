@@ -1,4 +1,3 @@
-import { Auth } from 'aws-amplify';
 import { put } from 'redux-saga/effects';
 
 import * as actionTypes from '../actionTypes';
@@ -48,7 +47,7 @@ export function* logout() {
 
 export function* getCurrentUser() {
   try {
-    console.log('started....');
+    // console.log('started....');
     yield put(loadingStart());
     const res = yield isAuthenticate();
     console.log('is Authenticated');

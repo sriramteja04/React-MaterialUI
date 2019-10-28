@@ -73,8 +73,9 @@ export const newPassword = (username, existingPassword, newPassword) => {
             onSuccess: function(result) {
               resolve(result);
             },
-            onFailure: function(result) {
-              reject(result);
+            onFailure: function(err) {
+              console.log(err);
+              reject(err.message);
             },
           }
         );
