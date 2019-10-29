@@ -78,7 +78,6 @@ class SignIn extends React.Component {
                                 type="name"
                                 value={this.state.username}
                                 onChange={this.inputChangeHandler}
-                                aria-describedby="component-error-text"
                             />
                         </div>
                         <div className={'form__control m-1'}>
@@ -90,8 +89,8 @@ class SignIn extends React.Component {
                                         : 'form__input error'
                                 }
                                 required
-                                name="password"
                                 label="Password"
+                                name="password"
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.inputChangeHandler}
