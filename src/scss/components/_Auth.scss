@@ -1,6 +1,7 @@
 .Auth {
     height: 100vh;
-    background-image: linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8));
+    //background-image: linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8));
+    background-image: linear-gradient(to right bottom, #5fc984, $color-primary-dark);
     background-size: cover;
     background-position: top;
     position: relative;
@@ -17,11 +18,11 @@
         &__heading {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #28b485;
+            color: $color-primary-dark;
             margin-bottom: 2rem;
         }
         .error {
-            color: #ff8a82;
+            color: $alert;
             font-size: 1rem;
             font-weight: 500;
             margin: 1rem auto;
@@ -36,23 +37,30 @@
     &__control {
         .form__input {
             width: 90%;
-            ::after {
-            }
             &.error {
                 margin: 0;
-                border-bottom: 1px solid #ff8a82;
+                label {
+                    color: $alert;
+                }
+                ::before {
+                    border-bottom: 2px solid $alert;
+                }
+                ::after {
+                    border-bottom: none;
+                }
             }
         }
+
         .form__icon {
             margin: 1.2rem 0.5rem 0 0;
         }
     }
     .btn-primary {
-        background-color: #f7c568;
+        background-color: $color-secondary-dark;
         cursor: pointer;
         margin: 1rem;
         &:hover {
-            background-color: darken(#f7c568, 15%);
+            background-color: darken($color-secondary-dark, 5%);
         }
     }
     &__link {
