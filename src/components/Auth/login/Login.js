@@ -36,6 +36,8 @@ class SignIn extends React.Component {
         } else {
             this.setState({
                 inputError: 'Please Enter User name and Password',
+                username: '',
+                password: '',
             });
         }
     };
@@ -46,7 +48,7 @@ class SignIn extends React.Component {
         }
 
         if (this.props.isAuth) {
-            return <Redirect to="/home" />;
+            return <Redirect to="/dashboard" />;
         }
 
         return (

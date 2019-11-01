@@ -1,0 +1,50 @@
+.root {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    &-1 {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        &.grid {
+            margin: 32px 0;
+        }
+        &.paper {
+            padding: 32px;
+            height: 150px;
+            width: 350px;
+            border: none;
+            background-color: lighten($color: #3c4f4d, $amount: 15%);
+            color: #fff;
+        }
+    }
+
+    &-2 {
+        height: 50vh;
+        text-align: center;
+        margin-bottom: 32px;
+        &.grid {
+        }
+        &.paper {
+            height: 100%;
+            background-color: #d1d0cf;
+        }
+    }
+
+    &-3 {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        height: 35vh;
+        width: 30%;
+        &.paper {
+            padding: 32px;
+            width: 100%;
+            border: none;
+            background-color: lighten($color: #3c4f4d, $amount: 15%);
+            color: #fff;
+        }
+    }
+}

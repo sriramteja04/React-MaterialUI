@@ -1,8 +1,14 @@
 .Auth {
     height: 100vh;
     //background-image: linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8));
-    background-image: linear-gradient(to right bottom, #5fc984, $color-primary-dark);
-    background-size: cover;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(95, 201, 132, 0.8),
+            rgba($color-primary-dark, 0.8)
+        ),
+        url(../../assets/images/background.jpeg);
+    //background-repeat: no-repeat;
+    background-size: auto;
     background-position: top;
     position: relative;
 
@@ -10,7 +16,7 @@
         width: 25rem;
         height: auto;
         position: absolute;
-        top: 40%;
+        top: 60%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -39,15 +45,19 @@
             width: 90%;
             &.error {
                 margin: 0;
+                width: 90%;
                 label {
                     color: $alert;
                 }
                 ::before {
                     border-bottom: 2px solid $alert;
                 }
-                ::after {
-                    border-bottom: none;
-                }
+            }
+            label {
+                color: $color-primary-dark;
+            }
+            ::after {
+                border-bottom: 2px solid $color-primary-dark;
             }
         }
 
