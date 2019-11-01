@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -15,47 +15,48 @@ import NewPassword from './components/Auth/New Password/NewPassword';
 import ForgetPassword from './components/Auth/forget password/ForgetPassword';
 import Login from './components/Auth/login/Login';
 import Verification from './components/Auth/forget password/Verification';
+import Dashboard from './components/Home/Dashboard';
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.getCurrentUser();
-  }
-
-  render() {
-    if (this.props.loading) {
-      // console.log('loading..........');
-      // console.log(this.props);
-      return <CircularProgress disableShrink />;
+    componentDidMount() {
+        this.props.getCurrentUser();
     }
 
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Switch>
-          <Route exact path={'/newPassword'} component={NewPassword} />
-          <Route exact path={'/forgetPassword'} component={ForgetPassword} />
-          <Route
-            excat
-            path={'/forgetPassword/:username'}
-            component={Verification}
-          />
-          <Route exact path={'/'} component={Login} />
-          <Layout>
-            <PrivateRouter exact path="/home" component={Home} />
-          </Layout>
-          <Route exact component={NotFound} />
-        </Switch>
-      </React.Fragment>
-    );
-  }
+    render() {
+        if (this.props.loading) {
+            return <CircularProgress disableShrink />;
+        }
+
+        // if(this.props.isAuth) {
+        //   return <Redirect to={"/dashboard"} />
+        // }
+
+        return (
+            <React.Fragment>
+                <CssBaseline />
+                <Switch>
+                    <Route exact path={'/newPassword'} component={NewPassword} />
+                    <Route exact path={'/forgetPassword'} component={ForgetPassword} />
+                    <Route excat path={'/forgetPassword/:username'} component={Verification} />
+                    <Route exact path={'/'} component={Login} />
+                    <Layout>
+                        {/*<PrivateRouter exact path="/home" component={Home} />*/}
+                        <PrivateRouter exact path="/dashboard" component={Dashboard} />
+                    </Layout>
+                    <Route exact component={NotFound} />
+                </Switch>
+            </React.Fragment>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  loading: state.get('loading'),
-  getUserError: state.get('error'),
+    isAuth: state.get('isAuth'),
+    loading: state.get('loading'),
+    getUserError: state.get('error'),
 });
 
 export default connect(
-  mapStateToProps,
-  { getCurrentUser }
+    mapStateToProps,
+    { getCurrentUser }
 )(App);
