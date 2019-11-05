@@ -5,10 +5,10 @@ import Navigation from './Navigation';
 
 const Layout = props => {
     return (
-        <div>
+        <div className={'App'}>
             <Navigation />
-            <Container maxWidth={'xl'}>
-                <div className={'container'}>{props.children}</div>
+            <Container maxWidth={'xl'} className={'App__container'}>
+                {props.children}
             </Container>
         </div>
     );

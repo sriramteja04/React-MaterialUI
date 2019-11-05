@@ -1,40 +1,27 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-import ScatterGraph from './ScatterGraph';
-
-// import "./Dashboard.scss";
+import ScatterGraph from '../../components/Dashboard/Graph/ScatterGraph';
 
 const Dashboard = () => {
     function FormRow() {
         return (
             <React.Fragment>
                 <Grid item xs={2} className="root-1 grid">
-                    <Paper square={true} className="root-1 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-1 paper"></Paper>
                 </Grid>
                 <Grid item xs={2} className="root-1 grid">
-                    <Paper square={true} className="root-1 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-1 paper"></Paper>
                 </Grid>
                 <Grid item xs={2} className="root-1 grid">
-                    <Paper square={true} className="root-1 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-1 paper"></Paper>
                 </Grid>
                 <Grid item xs={2} className="root-1 grid">
-                    <Paper square={true} className="root-1 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-1 paper"></Paper>
                 </Grid>
                 <Grid item xs={2} className="root-1 grid">
-                    <Paper square={true} className="root-1 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-1 paper"></Paper>
                 </Grid>
             </React.Fragment>
         );
@@ -44,19 +31,13 @@ const Dashboard = () => {
         return (
             <React.Fragment>
                 <Grid item xs={3} className={'root-3 grid'}>
-                    <Paper square={true} className="root-3 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-3 paper"></Paper>
                 </Grid>
                 <Grid item xs={4} className={'root-3 grid'}>
-                    <Paper square={true} className="root-3 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-3 paper"></Paper>
                 </Grid>
                 <Grid item xs={4} className={'root-3 grid'}>
-                    <Paper square={true} className="root-3 paper">
-                        item
-                    </Paper>
+                    <Paper square={true} className="root-3 paper"></Paper>
                 </Grid>
             </React.Fragment>
         );
@@ -70,7 +51,7 @@ const Dashboard = () => {
             <Grid container className="root-2">
                 <Grid item xs={12} className="root-2 grid">
                     <Paper square={true} className="root-2 paper">
-                        item
+                        <ScatterGraph />
                     </Paper>
                 </Grid>
             </Grid>

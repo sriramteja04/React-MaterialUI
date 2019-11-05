@@ -5,17 +5,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import PrivateRouter from './components/Routers/PrivateRouter';
-import NotFound from './components/Layouts/NotFound';
+import NotFound from './page/Layouts/NotFound';
 import { getCurrentUser } from './modules/Auth/Login/actions';
 import './scss/style.scss';
-import Layout from './components/Layouts/index';
+import Layout from './page/Layouts/index';
 
-import Home from './components/Home/Home';
 import NewPassword from './components/Auth/New Password/NewPassword';
 import ForgetPassword from './components/Auth/forget password/ForgetPassword';
 import Login from './components/Auth/login/Login';
 import Verification from './components/Auth/forget password/Verification';
-import Dashboard from './components/Home/Dashboard';
+import Dashboard from './page/Dashboard/Dashboard';
+import Promotions from './page/Promotions/Promotions';
 
 class App extends React.Component {
     componentDidMount() {
@@ -27,10 +27,6 @@ class App extends React.Component {
             return <CircularProgress disableShrink />;
         }
 
-        // if(this.props.isAuth) {
-        //   return <Redirect to={"/dashboard"} />
-        // }
-
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -40,8 +36,8 @@ class App extends React.Component {
                     <Route excat path={'/forgetPassword/:username'} component={Verification} />
                     <Route exact path={'/'} component={Login} />
                     <Layout>
-                        {/*<PrivateRouter exact path="/home" component={Home} />*/}
                         <PrivateRouter exact path="/dashboard" component={Dashboard} />
+                        <PrivateRouter exact path="/promotions" component={Promotions} />
                     </Layout>
                     <Route exact component={NotFound} />
                 </Switch>

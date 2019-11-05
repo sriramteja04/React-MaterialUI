@@ -1,9 +1,7 @@
 .root {
-    width: 95%;
-    margin: auto;
     display: flex;
     flex-direction: column;
-
+    background-color: inherit;
     &-1 {
         display: flex;
         justify-content: space-between;
@@ -13,11 +11,9 @@
         }
         &.paper {
             padding: 32px;
-            height: 150px;
+            height: 120px;
             width: 350px;
             border: none;
-            background-color: lighten($color: #3c4f4d, $amount: 15%);
-            color: #fff;
         }
     }
 
@@ -29,7 +25,6 @@
         }
         &.paper {
             height: 100%;
-            background-color: #d1d0cf;
         }
     }
 
@@ -39,12 +34,11 @@
         text-align: center;
         height: 35vh;
         width: 30%;
+        margin-bottom: 32px;
         &.paper {
             padding: 32px;
             width: 100%;
             border: none;
-            background-color: lighten($color: #3c4f4d, $amount: 15%);
-            color: #fff;
         }
     }
 }

@@ -1,0 +1,11 @@
+diff a/src/page/Layouts/Navigation/listItems.js b/src/page/Layouts/Navigation/listItems.js	(rejected hunks)
+@@ -44,3 +42 @@ class ListItems extends React.Component {
+-                    <ExpansionPanel
+-                        className={'expansion'}
+-                    >
++                    <ExpansionPanel className={'expansion'}>
+@@ -75,3 +71 @@ class ListItems extends React.Component {
+-                    <ExpansionPanel
+-                        className={'expansion'}
+-                    >
++                    <ExpansionPanel className={'expansion'}>
