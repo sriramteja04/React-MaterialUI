@@ -1,0 +1,4 @@
+diff a/src/page/Dashboard/Dashboard.js b/src/page/Dashboard/Dashboard.js	(rejected hunks)
+@@ -5 +5 @@ import Grid from '@material-ui/core/Grid';
+-import ScatterGraph from "./ScatterGraph";
++import ScatterGraph from './ScatterGraph';
