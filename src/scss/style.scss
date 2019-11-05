@@ -4,6 +4,8 @@
 
 @import 'components/Auth';
 @import '../components/Auth/login/login.scss';
-@import '../components/Layouts/Navigation/Appbar';
-@import '../components/Layouts/Layout';
-@import '../components/Home/Dashboard';
+@import '../page/Layouts/Navigation/Appbar';
+@import '../page/Layouts/Layout';
+@import '../page/Dashboard/Dashboard';
+@import '../page/Layouts/Navigation/listitems';
+@import '../components/Dashboard/Graph/ScatterGraph';

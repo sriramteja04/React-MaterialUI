@@ -2,7 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-import ScatterGraph from './ScatterGraph';
+import ScatterGraph from '../../components/Dashboard/Graph/ScatterGraph';
 
 const Dashboard = () => {
     function FormRow() {

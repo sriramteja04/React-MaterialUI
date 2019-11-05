@@ -9,7 +9,7 @@ class ScatterGraph extends Component {
 
     margin = { top: 10, right: 100, bottom: 30, left: 30 };
     width = 1400 - this.margin.left - this.margin.right;
-    height = 400 - this.margin.top - this.margin.bottom;
+    height = 300 - this.margin.top - this.margin.bottom;
 
     row = (d, allGroup) => {
         // Reformat the data: we need an array of arrays of {x, y} tuples

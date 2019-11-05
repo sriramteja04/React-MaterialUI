@@ -15,114 +15,87 @@ import LayersIcon from '@material-ui/icons/Layers';
 import HistoryIcon from '@material-ui/icons/History';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+const ListItems = props => {
+    const toggleSideDrawer = () => {
+        props.toggle();
+    };
+    const conditionalToggle = () => {
+        console.log(props.open);
+        if (props.open) props.toggle();
+    };
 
-class ListItems extends React.Component {
-    render() {
-        return (
-            <div className={'mainlist'}>
-                <ListItem className={'mainlist__btn'} button>
+    return (
+        <div className={'mainlist'}>
+            <Link to={'/dashboard'}>
+                <ListItem className={'mainlist__btn'} button onClick={conditionalToggle}>
                     <ListItemIcon className={'mainlist__icon'}>
                         <DashboardIcon />
                     </ListItemIcon>
                     <ListItemText className={'mainlist__text'} primary="Dashboard" />
                 </ListItem>
-                {!this.props.open ? (
-                    <ListItem
-                        button
-                        onClick={e => {
-                            this.props.toggle();
-                        }}
-                    >
-                        <ListItemIcon>
-                            <HistoryIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Order History" />
-                    </ListItem>
-                ) : (
-                    <ExpansionPanel className={'expansion'}>
-                        <ExpansionPanelSummary
-                            className={'expansion__panel'}
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <HistoryIcon />
-                            <Typography className={'expansion--heading'}>Order History</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails className={'expansion__Link'}>
-                            <Link>Manage Promos</Link>
-                        </ExpansionPanelDetails>
-                        <ExpansionPanelDetails className={'expansion__Link'}>
-                            <Link>Prioritize Promos</Link>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                )}
-                {!this.props.open ? (
-                    <ListItem
-                        button
-                        onClick={() => {
-                            this.props.toggle();
-                        }}
-                    >
-                        <ListItemIcon>
-                            <LocalOfferIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Promotions" />
-                    </ListItem>
-                ) : (
-                    <ExpansionPanel className={'expansion'}>
-                        <ExpansionPanelSummary
-                            className={'expansion__panel'}
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <LocalOfferIcon />
-                            <Typography className={'expansion--heading'}>Promotions</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails className={'expansion__Link'}>
-                            <Link>Manage Promos</Link>
-                        </ExpansionPanelDetails>
-                        <ExpansionPanelDetails className={'expansion__Link'}>
-                            <Link>Prioritize Promos</Link>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                )}
-                <ListItem button className={'mainlist__btn'}>
+            </Link>
+            {!props.open ? (
+                <ListItem button onClick={toggleSideDrawer}>
                     <ListItemIcon>
-                        <TimelineIcon />
+                        <HistoryIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Reporting" />
+                    <ListItemText primary="Order History" />
                 </ListItem>
-                <ListItem button className={'mainlist__btn'}>
+            ) : (
+                <ExpansionPanel className={'expansion'}>
+                    <ExpansionPanelSummary
+                        className={'expansion__panel'}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <HistoryIcon />
+                        <Typography className={'expansion--heading'}>Order History</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={'expansion__Link'}>
+                        <Link>Manage Promos</Link>
+                    </ExpansionPanelDetails>
+                    <ExpansionPanelDetails className={'expansion__Link'}>
+                        <Link>Prioritize Promos</Link>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+            )}
+            {!props.open ? (
+                <ListItem button onClick={toggleSideDrawer}>
                     <ListItemIcon>
-                        <LayersIcon />
+                        <LocalOfferIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Assortment" />
+                    <ListItemText primary="Promotions" />
                 </ListItem>
-            </div>
-        );
-    }
-}
+            ) : (
+                <ExpansionPanel className={'expansion'}>
+                    <ExpansionPanelSummary
+                        className={'expansion__panel'}
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <LocalOfferIcon />
+                        <Typography className={'expansion--heading'}>Promotions</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={'expansion__Link'}>
+                        <Link>Manage Promos</Link>
+                    </ExpansionPanelDetails>
+                    <ExpansionPanelDetails onClick={toggleSideDrawer} className={'expansion__Link'}>
+                        <Link to={'/promotions'}>Prioritize Promos</Link>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+            )}
+            <ListItem button className={'mainlist__btn'}>
+                <ListItemIcon>
+                    <TimelineIcon />
+                </ListItemIcon>
+                <ListItemText primary="Reporting" />
+            </ListItem>
+            <ListItem button className={'mainlist__btn'}>
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Assortment" />
+            </ListItem>
+        </div>
+    );
+};
 
 export default ListItems;
-
-// export const secondaryListItems = (
-//     <div className={'secondartlist'}>
-//         {/*<ListSubheader inset>Saved reports</ListSubheader>*/}
-//         <ListItem button>
-//             <ListItemIcon>
-//                 <AssignmentIcon />
-//             </ListItemIcon>
-//             <ListItemText primary="Current month" />
-//         </ListItem>
-//         <ListItem button>
-//             <ListItemIcon>
-//                 <AssignmentIcon />
-//             </ListItemIcon>
-//             <ListItemText primary="Last quarter" />
-//         </ListItem>
-//         <ListItem button>
-//             <ListItemIcon>
-//                 <AssignmentIcon />
-//             </ListItemIcon>
-//             <ListItemText primary="Year-end sale" />
-//         </ListItem>
-//     </div>
-// );
