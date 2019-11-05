@@ -1,13 +1,17 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+
+import {
+    CssBaseline,
+    Drawer,
+    Toolbar,
+    List,
+    Typography,
+    Divider,
+    IconButton,
+    AppBar,
+    Badge,
+} from '@material-ui/core';
+
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -15,7 +19,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import AddIcon from '@material-ui/icons/Add';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-import { mainListItems, secondaryListItems } from './listItems';
+import ListItems from './listItems';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -32,15 +36,17 @@ class Appbar extends React.Component {
         }));
     };
 
+    toggleExpand = () => {};
+
     logoutHandler = () => {
         this.props.logout();
     };
 
     render() {
         return (
-            <div>
+            <>
                 <CssBaseline />
-                <AppBar position="absolute" className="navbar">
+                <AppBar className="navbar">
                     <Toolbar className={'toolbar'}>
                         <div className={'toolbar__menuicon'}>
                             <IconButton
@@ -91,30 +97,21 @@ class Appbar extends React.Component {
                     open={this.state.open}
                 >
                     <div className={'sidedrawer__closeIcon'}>
-                        {this.state.open ? (
+                        {this.state.open && (
                             <IconButton
                                 className={'sidedrawer_closeIcon close'}
                                 onClick={this.toggleHandler}
                             >
                                 <CloseIcon />
                             </IconButton>
-                        ) : (
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                onClick={this.toggleHandler}
-                                className={'sidedrawer_closeIcon menu'}
-                            >
-                                <MenuIcon />
-                            </IconButton>
                         )}
                     </div>
                     <Divider />
-                    <List>{mainListItems}</List>
-                    <Divider />
-                    <List>{secondaryListItems}</List>
+                    <List className={'list'}>
+                        <ListItems open={this.state.open} toggle={this.toggleHandler} />
+                    </List>
                 </Drawer>
-            </div>
+            </>
         );
     }
 }
