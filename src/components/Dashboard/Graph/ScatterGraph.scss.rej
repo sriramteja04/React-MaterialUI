@@ -1,0 +1,4 @@
+diff a/src/components/Dashboard/Graph/ScatterGraph.scss b/src/components/Dashboard/Graph/ScatterGraph.scss	(rejected hunks)
+@@ -2 +2 @@
+-  margin: 2.3rem auto 0;
++    margin: 2.3rem auto 0;
