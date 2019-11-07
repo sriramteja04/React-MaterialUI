@@ -48,7 +48,7 @@ class SignIn extends React.Component {
         }
 
         if (this.props.isAuth) {
-            return <Redirect to="/dashboard" />;
+            return <Redirect to="/promotions" />;
         }
 
         return (
