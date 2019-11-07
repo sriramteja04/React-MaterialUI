@@ -1,0 +1,39 @@
+.promo-toolbar {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    .toolbar-items-1 {
+        &__heading {
+            display: inline;
+        }
+
+        &__items {
+            margin-left: 1rem;
+        }
+    }
+    .toolbar-items-2 {
+        .form-control {
+            width: 12rem;
+            background-color: #ffffff;
+
+            &.select-input {
+                //padding: 0.5rem;
+            }
+        }
+
+        .column--btn {
+            color: $font-color;
+            background-color: #ffffff;
+            padding: 0.9rem;
+            box-shadow: none;
+            border: 1px solid #ddd;
+            margin-left: 2rem;
+        }
+
+        .switch {
+            margin-left: 2rem;
+        }
+    }
+}
