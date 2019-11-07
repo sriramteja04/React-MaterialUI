@@ -3,11 +3,11 @@ import React from 'react';
 import Table from '@material-ui/core/Table';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import EnhancedTableHead from './EnhancedTableHead';
 import EnhancedTableBody from './EnhancedTableBody';
 import TableToolBar from './TableToolBar';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 class PromotionsTable extends React.Component {
     state = {
