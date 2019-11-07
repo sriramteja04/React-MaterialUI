@@ -3,9 +3,11 @@
 @import 'config';
 
 @import 'components/Auth';
+@import 'components/Table';
 @import '../components/Auth/login/login.scss';
-@import '../page/Layouts/Navigation/Appbar';
+@import '../components/Navigation/Appbar';
 @import '../page/Layouts/Layout';
 @import '../page/Dashboard/Dashboard';
-@import '../page/Layouts/Navigation/listitems';
+@import '../components/Navigation/listitems';
 @import '../components/Dashboard/Graph/ScatterGraph';
+@import '../components/Promotions/TableToolBar';
