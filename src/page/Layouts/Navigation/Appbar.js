@@ -36,8 +36,6 @@ class Appbar extends React.Component {
         }));
     };
 
-    toggleExpand = () => {};
-
     logoutHandler = () => {
         this.props.logout();
     };
@@ -91,20 +89,11 @@ class Appbar extends React.Component {
                         </div>
                     </Toolbar>
                 </AppBar>
-                <Drawer
-                    className={!this.state.open ? 'sidedrawer__close' : 'sidedrawer'}
-                    variant="permanent"
-                    open={this.state.open}
-                >
-                    <div className={'sidedrawer__closeIcon'}>
-                        {this.state.open && (
-                            <IconButton
-                                className={'sidedrawer_closeIcon close'}
-                                onClick={this.toggleHandler}
-                            >
-                                <CloseIcon />
-                            </IconButton>
-                        )}
+                <Drawer className={'sidedrawer'} variant={'persistent'} open={this.state.open}>
+                    <div>
+                        <IconButton onClick={this.toggleHandler}>
+                            <CloseIcon fontSize={'large'} color={'action'} />
+                        </IconButton>
                     </div>
                     <Divider />
                     <List className={'list'}>

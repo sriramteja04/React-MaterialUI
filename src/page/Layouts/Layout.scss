@@ -4,24 +4,8 @@
 }
 
 .MuiContainer-root.App__container {
-    width: 95%;
-    margin-left: 5rem;
+    width: 98%;
+    margin: auto;
     margin-top: 8rem;
     background-color: $background-color;
-}
-
-@media (min-width: 1600px) {
-    .MuiContainer-root.App__container {
-        width: 95%;
-        margin-left: 5rem;
-        margin-top: 8rem;
-    }
-}
-
-@media (min-width: 2000px) {
-    .MuiContainer-root.App__container {
-        width: 95%;
-        margin: auto;
-        margin-top: 8rem;
-    }
 }

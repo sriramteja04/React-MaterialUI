@@ -23,9 +23,20 @@ class App extends React.Component {
     }
 
     render() {
-        if (this.props.loading) {
-            return <CircularProgress disableShrink />;
-        }
+        // if(this.props.isAuth) {
+        //     return <Redirect to={'/promotions'} />
+        // }
+
+        // if (this.props.loading) {
+        //     return <CircularProgress disableShrink />;
+        // }
+
+        // let privateRoutes = null;
+        // if(this.props.isAuth) {
+        //     privateRoutes = (
+        //         <Route excat path={'/promotions'} component={Promotions}/>
+        //     )
+        // }
 
         return (
             <React.Fragment>

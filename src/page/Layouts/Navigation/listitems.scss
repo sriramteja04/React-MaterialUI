@@ -1,4 +1,8 @@
 .mainlist {
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
     .mainlist__btn {
         padding: 1.25rem;
         border-bottom: 0.5px solid $background-color;
