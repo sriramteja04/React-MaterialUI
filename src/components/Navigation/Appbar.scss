@@ -1,12 +1,18 @@
-.MuiPaper-root.navbar {
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
     border-top: 9px solid #2085a1;
-    box-shadow: none;
-    z-index: -1;
+    background-color: #ffffff;
+
     .toolbar {
-        width: 100%;
+        top: 0;
+        width: 95%;
+        margin: auto;
         display: flex;
-        background-color: #ffffff;
-        color: black;
+        align-items: center;
+        height: 4rem;
 
         &__heading {
             flex-grow: 2;
@@ -42,7 +48,7 @@
         box-shadow: 1px 0 5px -2px #888;
         transition: 0.5s ease;
         overflow-x: hidden;
-        z-index: 10;
+        z-index: 200; //sits on the top of the backdrop when then toogle menu is clicked
     }
 
     button {
