@@ -12,10 +12,6 @@ const ListItems = props => {
     const toggleSideDrawer = () => {
         props.toggle();
     };
-    const conditionalToggle = () => {
-        console.log(props.open);
-        if (props.open) props.toggle();
-    };
 
     return (
         <div className={'mainlist'}>

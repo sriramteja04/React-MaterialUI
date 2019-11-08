@@ -10,7 +10,7 @@ const SideDrawer = props => {
             <Drawer className={'sidedrawer'} variant={'persistent'} open={open}>
                 <div>
                     <IconButton onClick={toggleHandler}>
-                        <CloseIcon color={'inherit'} fontSize={'large'} color={'action'} />
+                        <CloseIcon color={'action'} fontSize={'large'} />
                     </IconButton>
                 </div>
                 <Divider />
