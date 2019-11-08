@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -12,6 +12,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import HelpIcon from '@material-ui/icons/Help';
 
 import { login, disableError } from '../../../modules/Auth/Login/actions';
+import Button from '../../../common/se_button';
 
 class SignIn extends React.Component {
     state = {
@@ -101,8 +102,8 @@ class SignIn extends React.Component {
                         <div className={'m-1'}>
                             <FormControlLabel control={<Checkbox />} label={'Remember Me'} />
                         </div>
-                        <Button className={'btn-primary m-1'} type="submit" variant="contained">
-                            Sign In
+                        <Button className={'btn btn-dark lg'} type={'submit'}>
+                            Log In
                         </Button>
                         <div className={'form__link m-2'}>
                             <Link to={'/forgetPassword'}>

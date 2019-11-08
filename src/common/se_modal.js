@@ -7,11 +7,9 @@ export default class Modal extends Component {
     constructor(props) {
         super(props);
         this.el = document.createElement('div');
-        console.log(props);
     }
 
     componentDidMount() {
-        console.log('component mounted....');
         portalRoot.appendChild(this.el);
     }
 
