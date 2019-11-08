@@ -1,8 +1,7 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import PrivateRouter from './components/Routers/PrivateRouter';
 import NotFound from './page/Layouts/NotFound';
@@ -23,23 +22,8 @@ class App extends React.Component {
     }
 
     render() {
-        // if(this.props.isAuth) {
-        //     return <Redirect to={'/promotions'} />
-        // }
-
-        // if (this.props.loading) {
-        //     return <CircularProgress disableShrink />;
-        // }
-
-        // let privateRoutes = null;
-        // if(this.props.isAuth) {
-        //     privateRoutes = (
-        //         <Route excat path={'/promotions'} component={Promotions}/>
-        //     )
-        // }
-
         return (
-            <React.Fragment>
+            <div className={'app'}>
                 <CssBaseline />
                 <Switch>
                     <Route exact path={'/newPassword'} component={NewPassword} />
@@ -52,7 +36,7 @@ class App extends React.Component {
                     </Layout>
                     <Route exact component={NotFound} />
                 </Switch>
-            </React.Fragment>
+            </div>
         );
     }
 }

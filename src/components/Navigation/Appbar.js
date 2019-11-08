@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CssBaseline, Toolbar, Typography, IconButton, AppBar, Badge } from '@material-ui/core';
+import { CssBaseline, Typography, IconButton, Badge } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -22,20 +22,21 @@ const Appbar = props => {
     return (
         <>
             <CssBaseline />
-            <AppBar className="navbar">
-                <Toolbar className={'toolbar'}>
+            <header className="header">
+                <nav className="toolbar">
                     <div className={'toolbar__menuicon'}>
                         <IconButton
                             edge="start"
                             color="inherit"
                             aria-label="open drawer"
                             onClick={toggleHandler}
+                            name={'menu-icon'}
                         >
-                            <MenuIcon />
+                            <MenuIcon fontSize={'large'} />
                         </IconButton>
                     </div>
                     <div className={!open ? 'toolbar__heading' : 'toolbar__heading shift'}>
-                        <Typography component="h1" variant="h6" color="inherit" noWrap>
+                        <Typography component="h1" variant="h5" color="inherit" noWrap>
                             Admin Portal
                         </Typography>
                     </div>
@@ -58,8 +59,8 @@ const Appbar = props => {
                             </Link>
                         </IconButton>
                     </div>
-                </Toolbar>
-            </AppBar>
+                </nav>
+            </header>
         </>
     );
 };
