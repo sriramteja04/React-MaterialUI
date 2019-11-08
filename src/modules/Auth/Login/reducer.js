@@ -90,14 +90,6 @@ const reducer = (state = initialState, action) => {
             };
             return state.merge(is_Auth_Error);
 
-        // case actionTypes.RESEND_CODE_SUCCESS:
-        //   const resendCode =
-        case actionTypes.RESEND_CODE_ERROR:
-            const resendCode = {
-                resendError: action.payload,
-            };
-            return state.merge(error);
-
         default:
             return state;
     }

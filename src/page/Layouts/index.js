@@ -3,19 +3,20 @@ import Container from '@material-ui/core/Container';
 
 import Appbar from '../../components/Navigation/Appbar';
 import SideDrawer from '../../components/Navigation/SideDrawer';
+import Backdrop from '../../components/Navigation/Backdrop';
 
 class Layout extends React.Component {
     state = {
         open: false,
     };
 
-    toggleHandler = () => {
+    toggleSideDrawer = () => {
         this.setState(prevState => ({
             open: !prevState.open,
         }));
     };
 
-    closeSideMenu = () => {
+    toggleBackdrop = e => {
         this.setState({
             open: false,
         });
@@ -23,18 +24,14 @@ class Layout extends React.Component {
 
     render() {
         return (
-            <div className={'App'}>
-                <Appbar open={this.state.open} toggleHandler={this.toggleHandler} />
-                <SideDrawer open={this.state.open} toggleHandler={this.toggleHandler} />
-
-                <Container
-                    onClick={this.closeSideMenu}
-                    maxWidth={'xl'}
-                    className={'App__container'}
-                >
+            <>
+                <Appbar open={this.state.open} toggleHandler={this.toggleSideDrawer} />
+                <SideDrawer open={this.state.open} toggleHandler={this.toggleSideDrawer} />
+                {this.state.open && <Backdrop closeBackdrop={this.toggleBackdrop} />}
+                <Container maxWidth={'xl'} className={'App__container'}>
                     {this.props.children}
                 </Container>
-            </div>
+            </>
         );
     }
 }
