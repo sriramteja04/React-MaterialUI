@@ -40,39 +40,7 @@
 .form {
     width: 90%;
     margin: auto;
-    &__control {
-        .form__input {
-            width: 90%;
-            &.error {
-                margin: 0;
-                width: 90%;
-                label {
-                    color: $alert;
-                }
-                ::before {
-                    border-bottom: 2px solid $alert;
-                }
-            }
-            label {
-                color: $color-primary-dark;
-            }
-            ::after {
-                border-bottom: 2px solid $color-primary-dark;
-            }
-        }
 
-        .form__icon {
-            margin: 1.2rem 0.5rem 0 0;
-        }
-    }
-    .btn-primary {
-        background-color: $color-secondary-dark;
-        cursor: pointer;
-        margin: 1rem;
-        &:hover {
-            background-color: darken($color-secondary-dark, 5%);
-        }
-    }
     &__link {
         cursor: pointer;
         a {

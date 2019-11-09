@@ -4,4 +4,4 @@ const Button = props => {
     return <button {...props}>{props.children}</button>;
 };
 
-export default Button;
+export default React.memo(Button);
