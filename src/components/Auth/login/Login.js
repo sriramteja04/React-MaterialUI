@@ -44,6 +44,14 @@ class SignIn extends React.Component {
         }
     };
 
+    eraseInputValues = () => {
+        console.log('erasing');
+        this.setState({
+            username: '',
+            password: '',
+        });
+    };
+
     render() {
         if (this.props.loading) {
             return <CircularProgress disableShrink />;
@@ -51,6 +59,10 @@ class SignIn extends React.Component {
 
         if (this.props.isAuth) {
             return <Redirect to="/promotions" />;
+        }
+
+        if (this.props.error) {
+            this.eraseInputValues();
         }
 
         return (
