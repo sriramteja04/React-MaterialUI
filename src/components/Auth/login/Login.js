@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
+
+// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import LockIcon from '@material-ui/icons/Lock';
 import HelpIcon from '@material-ui/icons/Help';
 
 import { login, disableError } from '../../../modules/Auth/Login/actions';
 import Button from '../../../common/se_button';
+import InputField from '../../../common/se_input_field';
 
 class SignIn extends React.Component {
     state = {
@@ -43,6 +44,14 @@ class SignIn extends React.Component {
         }
     };
 
+    eraseInputValues = () => {
+        console.log('erasing');
+        this.setState({
+            username: '',
+            password: '',
+        });
+    };
+
     render() {
         if (this.props.loading) {
             return <CircularProgress disableShrink />;
@@ -50,6 +59,10 @@ class SignIn extends React.Component {
 
         if (this.props.isAuth) {
             return <Redirect to="/promotions" />;
+        }
+
+        if (this.props.error) {
+            this.eraseInputValues();
         }
 
         return (
@@ -67,29 +80,28 @@ class SignIn extends React.Component {
                         </div>
                     )}
                     <form className={'form'} noValidate onSubmit={this.submitHandler}>
-                        <div className={'form__control m-1'}>
-                            <AccountCircleIcon className={'form__icon'} />
-                            <TextField
+                        <div>
+                            <InputField
                                 className={
                                     !this.state.inputError && !this.props.error
-                                        ? 'form__input'
-                                        : 'form__input error'
+                                        ? 'input__control'
+                                        : 'input__control error'
                                 }
                                 required
-                                label="user name"
+                                label="User Name"
                                 name="username"
-                                type="name"
+                                type="text"
                                 value={this.state.username}
                                 onChange={this.inputChangeHandler}
+                                autoComplete="off"
                             />
                         </div>
-                        <div className={'form__control m-1'}>
-                            <LockIcon className={'form__icon'} />
-                            <TextField
+                        <div>
+                            <InputField
                                 className={
                                     !this.state.inputError && !this.props.error
-                                        ? 'form__input'
-                                        : 'form__input error'
+                                        ? 'input__control'
+                                        : 'input__control error'
                                 }
                                 required
                                 label="Password"
@@ -97,12 +109,13 @@ class SignIn extends React.Component {
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.inputChangeHandler}
+                                autoComplete="off"
                             />
                         </div>
                         <div className={'m-1'}>
                             <FormControlLabel control={<Checkbox />} label={'Remember Me'} />
                         </div>
-                        <Button className={'btn btn-dark lg'} type={'submit'}>
+                        <Button className={'btn btn-dark xl'} type={'submit'}>
                             Log In
                         </Button>
                         <div className={'form__link m-2'}>
