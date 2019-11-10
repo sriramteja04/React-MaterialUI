@@ -2,11 +2,15 @@
     min-width: 6rem;
     padding: 0.5rem 1rem;
     margin: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     border-radius: 4px;
     cursor: pointer;
     border: none;
+
+    &:focus {
+        outline: none;
+    }
 
     &-dark {
         background-color: $color-primary-dark;
@@ -19,6 +23,13 @@
         border: 1px solid $font-color;
     }
 
+    &-disabled {
+        background-color: $color-disabledGray;
+        color: $font-color;
+        cursor: not-allowed;
+        //border: 1px solid $font-color;
+    }
+
     &.md {
         width: 8rem;
     }
@@ -28,6 +39,6 @@
     }
 
     &.xl {
-        width: 16rem;
+        width: 18rem;
     }
 }
