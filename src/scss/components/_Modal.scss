@@ -1,5 +1,4 @@
 .modal {
-    transition: all 0.2s ease-in;
     &__background {
         width: 100%;
         height: 100%;
@@ -10,14 +9,13 @@
         z-index: 1000;
     }
     &__card {
-        display: flex;
-        flex-direction: column;
+        @include flex-col;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -60%);
         background-color: #ffffff;
-        width: 43rem;
+        width: 42rem;
         margin: auto;
         height: auto;
         padding: 2rem;
@@ -28,9 +26,7 @@
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
-    &__content {
-    }
     &__actions {
-        margin: 5rem auto 0;
+        margin-top: 5rem;
     }
 }
