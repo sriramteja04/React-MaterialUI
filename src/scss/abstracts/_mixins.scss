@@ -1,0 +1,18 @@
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}

@@ -45,7 +45,6 @@ class SignIn extends React.Component {
     };
 
     eraseInputValues = () => {
-        console.log('erasing');
         this.setState({
             username: '',
             password: '',
@@ -53,6 +52,7 @@ class SignIn extends React.Component {
     };
 
     render() {
+        // console.log('Login rendering.........',this.props);
         if (this.props.loading) {
             return <CircularProgress disableShrink />;
         }
@@ -94,6 +94,7 @@ class SignIn extends React.Component {
                                 value={this.state.username}
                                 onChange={this.inputChangeHandler}
                                 autoComplete="off"
+                                placeholder={'Enter user name'}
                             />
                         </div>
                         <div>
@@ -110,12 +111,13 @@ class SignIn extends React.Component {
                                 value={this.state.password}
                                 onChange={this.inputChangeHandler}
                                 autoComplete="off"
+                                placeholder={'Enter password'}
                             />
                         </div>
                         <div className={'m-1'}>
                             <FormControlLabel control={<Checkbox />} label={'Remember Me'} />
                         </div>
-                        <Button className={'btn btn-dark xl'} type={'submit'}>
+                        <Button className={'btn btn-dark md'} type={'submit'}>
                             Log In
                         </Button>
                         <div className={'form__link m-2'}>

@@ -1,6 +1,15 @@
-$color-primary-dark: #2f7a58;
-$color-primary-light: lighten($color-primary-dark, 5%);
-$color-secondary-dark: #e8a725;
-$alert: #f56973;
+$color-primary-dark: rgb(16, 127, 98);
+$alert: rgb(236, 37, 38);
+$color-black: rgb(50, 58, 69);
+$color-purble: rgba(53, 38, 84, 1);
+$color-orange: rgb(236, 113, 32);
+$color-fbBlue: rgb(60, 81, 147);
+$color-gray: rgb(91, 97, 107);
+$color-lightGray: rgb(211, 211, 211);
+$color-white: rgb(255, 255, 255);
+$color-overlay: rgba(0, 0, 0, 0.6);
+$color-disabledGray: rgb(213, 213, 215);
+
 $font-color: #394647;
 $background-color: #f2f2f2;
+$side-menu-width: 16rem;

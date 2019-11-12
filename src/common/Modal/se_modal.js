@@ -1,23 +1,20 @@
-import { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
+import ModalIndex from './index';
 
-const portalRoot = document.getElementById('modal');
-
-export default class Modal extends Component {
+export default class Modal extends PureComponent {
     constructor(props) {
         super(props);
+        this.portalRoot = document.getElementById('modal');
         this.el = document.createElement('div');
-    }
-
-    componentDidMount() {
-        portalRoot.appendChild(this.el);
+        this.portalRoot.appendChild(this.el);
     }
 
     componentWillUnmount() {
-        portalRoot.removeChild(this.el);
+        this.portalRoot.removeChild(this.el);
     }
 
     render() {
-        return ReactDom.createPortal(this.props.children, this.el);
+        return ReactDom.createPortal(<ModalIndex {...this.props} />, this.el);
     }
 }
