@@ -1,11 +1,13 @@
 import React from 'react';
 
 const InputField = props => {
-    const { label, ...rest } = props;
+    let { label, value, varient, className, ...rest } = props;
+    if (varient) className = className + ' standard';
+    if (value) className = className + ' has-value';
     return (
         <div className={'input'}>
-            <input {...rest} />
-            <label className={'label'}>{props.label}</label>
+            <input className={className} {...rest} />
+            <label className={'label'}>{label}</label>
         </div>
     );
 };

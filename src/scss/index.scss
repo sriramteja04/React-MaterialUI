@@ -1,11 +1,15 @@
-@import 'variables';
-@import 'base';
-@import 'config';
+@import 'abstracts/variables';
+@import 'base/base';
+@import 'abstracts/config';
+@import 'abstracts/mixins';
 
 @import 'components/Auth';
 @import 'components/Table';
 @import 'components/Button';
 @import 'components/InputField';
+@import 'components/Modal';
+@import 'components/SideMenu';
+@import 'components/container';
 
 @import '../components/Auth/login/login.scss';
 @import '../components/Navigation/Appbar';
@@ -15,3 +19,4 @@
 @import '../components/Dashboard/Graph/ScatterGraph';
 @import '../components/Promotions/TableToolBar';
 @import '../components/Navigation/Backdrop';
+@import '../components/Promotions/Create Promo/CreatePromo';
