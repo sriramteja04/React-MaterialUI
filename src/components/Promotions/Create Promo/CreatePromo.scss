@@ -1,0 +1,40 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    .input {
+        margin-left: 0;
+        width: inherit;
+    }
+}
+
+.details {
+    margin-top: 1.5rem;
+    &__toggles {
+        margin-top: 1rem;
+        @include flex-col;
+    }
+
+    &__sub-heading {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+.promo--heading {
+    display: inline;
+}
+
+.close--icon {
+    float: right;
+    cursor: pointer;
+    @include clearfix;
+}
+
+.btn:first-child {
+    margin-left: 0px;
+}
+
+.btn:last-child {
+    margin-right: 0px;
+}

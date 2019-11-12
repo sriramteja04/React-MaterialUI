@@ -1,9 +1,10 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
+// import Container from '@material-ui/core/Container';
 
 import Appbar from '../../components/Navigation/Appbar';
-import SideDrawer from '../../components/Navigation/SideDrawer';
 import Backdrop from '../../components/Navigation/Backdrop';
+import SideMenu from '../../common/se_side_menu';
+import Container from '../../components/HOC/Container';
 
 class Layout extends React.Component {
     state = {
@@ -23,14 +24,14 @@ class Layout extends React.Component {
     };
 
     render() {
+        const { open } = this.state;
         return (
             <>
-                <Appbar open={this.state.open} toggleHandler={this.toggleSideDrawer} />
-                <SideDrawer open={this.state.open} toggleHandler={this.toggleSideDrawer} />
-                {this.state.open && <Backdrop closeBackdrop={this.toggleBackdrop} />}
-                <Container maxWidth={'xl'} className={'App__container'}>
-                    {this.props.children}
-                </Container>
+                <Appbar open={open} toggleHandler={this.toggleSideDrawer} />
+                {open && <SideMenu open={open} toggleHandler={this.toggleSideDrawer} />}
+                {open && <Backdrop closeBackdrop={this.toggleBackdrop} />}
+                {/*<Container maxWidth={'xl'} className={'App__container'}>*/}
+                <Container>{this.props.children}</Container>
             </>
         );
     }

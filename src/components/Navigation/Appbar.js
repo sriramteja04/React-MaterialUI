@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import { logout } from '../../modules/Auth/Login/actions';
+import CreatePromo from '../Promotions/Create Promo/CreatePromo';
 
 const Appbar = props => {
     const { open, toggleHandler } = props;
@@ -19,19 +20,19 @@ const Appbar = props => {
         props.logout();
     };
 
+    const [createNew, setCreateNew] = useState(false);
+
+    const toggleCreateNew = () => {
+        setCreateNew(!createNew);
+    };
+
     return (
         <>
             <CssBaseline />
             <header className="header">
                 <nav className="toolbar">
                     <div className={'toolbar__menuicon'}>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={toggleHandler}
-                            name={'menu-icon'}
-                        >
+                        <IconButton color="inherit" onClick={toggleHandler}>
                             <MenuIcon fontSize={'large'} />
                         </IconButton>
                     </div>
@@ -41,10 +42,17 @@ const Appbar = props => {
                         </Typography>
                     </div>
                     <div className="toolbar--notification">
-                        <IconButton color="inherit" className={'toolbar--notification addbutton'}>
+                        {/*<Link to={'/promotions/create-new'}>*/}
+                        <IconButton
+                            onClick={toggleCreateNew}
+                            color="inherit"
+                            className={'toolbar--notification addbutton'}
+                        >
                             <AddIcon />
                             Create New
                         </IconButton>
+                        {/*</Link>*/}
+                        <>{createNew && <CreatePromo close={toggleCreateNew} />}</>
                         <IconButton color="inherit">
                             <ChatIcon />
                         </IconButton>
