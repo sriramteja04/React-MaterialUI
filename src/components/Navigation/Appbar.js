@@ -12,6 +12,10 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import { logout } from '../../modules/Auth/Login/actions';
 import CreatePromo from '../Promotions/Create Promo/CreatePromo';
+import Dropdown from '../../common/se_dropdown';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import DraftsIcon from '@material-ui/icons/Drafts';
+// import ListAltIcon from "@material-ui/core/SvgIcon/SvgIcon";
 
 const Appbar = props => {
     const { open, toggleHandler } = props;
@@ -22,9 +26,20 @@ const Appbar = props => {
 
     const [createNew, setCreateNew] = useState(false);
 
+    const [displayDropdown, setDisplayDropdown] = useState(false);
+
     const toggleCreateNew = () => {
         setCreateNew(!createNew);
     };
+
+    const toggleDropdown = () => {
+        setDisplayDropdown(!displayDropdown);
+    };
+
+    const listItems = [
+        { image: <ListAltIcon />, label: 'Promotions', onClick: toggleCreateNew },
+        { image: <DraftsIcon />, label: 'Message' },
+    ];
 
     return (
         <>
@@ -44,13 +59,14 @@ const Appbar = props => {
                     <div className="toolbar--notification">
                         {/*<Link to={'/promotions/create-new'}>*/}
                         <IconButton
-                            onClick={toggleCreateNew}
+                            onClick={toggleDropdown}
                             color="inherit"
                             className={'toolbar--notification addbutton'}
                         >
                             <AddIcon />
                             Create New
                         </IconButton>
+                        <>{displayDropdown && <Dropdown list={listItems} />}</>
                         {/*</Link>*/}
                         <>{createNew && <CreatePromo close={toggleCreateNew} />}</>
                         <IconButton color="inherit">
