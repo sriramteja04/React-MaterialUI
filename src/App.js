@@ -13,8 +13,9 @@ import Login from './components/Auth/login/Login';
 import Verification from './components/Auth/forget password/Verification';
 import Dashboard from './page/Dashboard/Dashboard';
 import Promotions from './page/Promotions/Promotions';
-import './scss/index.scss';
 import CreatePromo from './components/Promotions/Create Promo/CreatePromo';
+
+import './dest/index.css';
 
 class App extends React.Component {
     componentDidMount() {

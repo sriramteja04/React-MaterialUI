@@ -39,7 +39,7 @@ class CreatePromo extends PureComponent {
         const { promo_name, show } = this.state;
 
         let header = (
-            <div>
+            <div className={'heading'}>
                 <h2 className={'promo--heading'}>Create a new promo</h2>
                 <CloseIcon className={'close--icon'} onClick={this.cancelModalHandler} />
             </div>

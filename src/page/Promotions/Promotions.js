@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PromotionsTable from '../../components/Promotions/PromotionsTable';
-import { CircularProgress } from '@material-ui/core';
 import Spinner from '../../common/se_spinner';
 
 class Promotions extends Component {

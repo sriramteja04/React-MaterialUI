@@ -1,5 +1,4 @@
 import React from 'react';
-// import Container from '@material-ui/core/Container';
 
 import Appbar from '../../components/Navigation/Appbar';
 import Backdrop from '../../components/Navigation/Backdrop';
@@ -28,7 +27,7 @@ class Layout extends React.Component {
         return (
             <>
                 <Appbar open={open} toggleHandler={this.toggleSideDrawer} />
-                {open && <SideMenu open={open} toggleHandler={this.toggleSideDrawer} />}
+                {<SideMenu open={open} toggleHandler={this.toggleSideDrawer} />}
                 {open && <Backdrop closeBackdrop={this.toggleBackdrop} />}
                 {/*<Container maxWidth={'xl'} className={'App__container'}>*/}
                 <Container>{this.props.children}</Container>
