@@ -4,7 +4,9 @@ import { Redirect, Link } from 'react-router-dom';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
+
 import HelpIcon from '@material-ui/icons/Help';
 
 import { login, disableError } from '../../../modules/Auth/Login/actions';
@@ -49,6 +51,7 @@ class SignIn extends React.Component {
     };
 
     render() {
+        // console.log('Login rendering.........',this.props);
         if (this.props.loading) {
             return <Spinner />;
         }

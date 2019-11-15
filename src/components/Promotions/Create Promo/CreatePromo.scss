@@ -9,32 +9,26 @@
 }
 
 .details {
-    margin-top: 6rem;
+    margin-top: 1.5rem;
     &__toggles {
-        margin-top: 4rem;
+        margin-top: 1rem;
         @include flex-col;
     }
 
     &__sub-heading {
-        font-size: 4rem;
+        font-size: 1rem;
         font-weight: 500;
     }
 }
 
 .promo--heading {
     display: inline;
-    font-size: 6rem;
-    font-weight: bold;
 }
 
 .close--icon {
     float: right;
-    //font-size: 4rem;
     cursor: pointer;
     @include clearfix;
-    svg {
-        font-size: 4rem;
-    }
 }
 
 .btn:first-child {

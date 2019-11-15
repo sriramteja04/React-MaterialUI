@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CssBaseline, IconButton, Badge } from '@material-ui/core';
+import { CssBaseline, Typography, IconButton, Badge } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatIcon from '@material-ui/icons/Chat';
 import AddIcon from '@material-ui/icons/Add';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import { logout } from '../../modules/Auth/Login/actions';
 import CreatePromo from '../Promotions/Create Promo/CreatePromo';
@@ -32,38 +32,38 @@ const Appbar = props => {
             <header className="header">
                 <nav className="toolbar">
                     <div className={'toolbar__menuicon'}>
-                        <IconButton onClick={toggleHandler}>
+                        <IconButton color="inherit" onClick={toggleHandler}>
                             <MenuIcon fontSize={'large'} />
                         </IconButton>
                     </div>
                     <div className={!open ? 'toolbar__heading' : 'toolbar__heading shift'}>
-                        <h1>Admin Portal</h1>
+                        <Typography component="h1" variant="h5" color="inherit" noWrap>
+                            Admin Portal
+                        </Typography>
                     </div>
                     <div className="toolbar--notification">
+                        {/*<Link to={'/promotions/create-new'}>*/}
                         <IconButton
                             onClick={toggleCreateNew}
                             color="inherit"
-                            className={'toolbar--notification addbutton svg-icon'}
+                            className={'toolbar--notification addbutton'}
                         >
                             <AddIcon />
                             Create New
                         </IconButton>
+                        {/*</Link>*/}
                         <>{createNew && <CreatePromo close={toggleCreateNew} />}</>
-                        <IconButton className={'svg-icon'} color="inherit">
+                        <IconButton color="inherit">
                             <ChatIcon />
                         </IconButton>
-                        <IconButton className={'svg-icon'} color="inherit">
-                            <Badge badgeContent={4} className={'badge-number'} color="secondary">
+                        <IconButton color="inherit">
+                            <Badge badgeContent={4} color="secondary">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton
-                            className={'svg-icon'}
-                            color={'inherit'}
-                            onClick={logoutHandler}
-                        >
+                        <IconButton color={'inherit'} onClick={logoutHandler}>
                             <Link to={'/'}>
-                                <AccountCircleIcon />
+                                <ExitToAppIcon />
                             </Link>
                         </IconButton>
                     </div>

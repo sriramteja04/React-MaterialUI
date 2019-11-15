@@ -7,29 +7,23 @@
             background-color: $background-color;
             border-bottom: 5px solid $color-primary-dark;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
         }
         &__pagination {
             color: $font-color;
             font-weight: 400;
-            font-size: 4rem;
             width: 25%;
-            span {
-                font-size: 3.5rem;
-            }
-            svg {
-                font-size: 5rem;
-            }
         }
         &__head {
             border-bottom: 6px solid #ddd;
 
             .table__row {
                 cursor: pointer;
-
+                &.checbox {
+                }
                 &.heading {
-                    font-size: 4rem;
-                    font-weight: 500;
+                    font-size: 0.9rem;
+                    font-weight: 450;
                     color: $font-color;
                 }
             }
@@ -37,7 +31,6 @@
         &__body {
             .table__row {
                 cursor: pointer;
-                font-size: 3.5rem;
             }
         }
     }
