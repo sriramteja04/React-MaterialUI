@@ -3,17 +3,14 @@
 @import 'abstracts/config';
 @import 'abstracts/mixins';
 
-//SCSS Components
 @import 'components/Auth';
 @import 'components/Table';
 @import 'components/Button';
 @import 'components/InputField';
 @import 'components/Modal';
 @import 'components/SideMenu';
-@import 'components/Container';
-@import 'components/Spinner';
+@import 'components/container';
 
-//Pages Components
 @import '../components/Auth/login/login.scss';
 @import '../components/Navigation/Appbar';
 @import '../page/Layouts/Layout';
@@ -23,4 +20,3 @@
 @import '../components/Promotions/TableToolBar';
 @import '../components/Navigation/Backdrop';
 @import '../components/Promotions/Create Promo/CreatePromo';
-@import '../page/Promotions/Promotions';
