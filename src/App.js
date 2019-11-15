@@ -15,7 +15,7 @@ import Dashboard from './page/Dashboard/Dashboard';
 import Promotions from './page/Promotions/Promotions';
 import CreatePromo from './components/Promotions/Create Promo/CreatePromo';
 
-import './dest/index.css';
+import './scss/index.scss';
 
 class App extends React.Component {
     componentDidMount() {
