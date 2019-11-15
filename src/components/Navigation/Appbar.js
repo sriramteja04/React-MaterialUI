@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CssBaseline, Typography, IconButton, Badge } from '@material-ui/core';
+import { CssBaseline, IconButton } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import ChatIcon from '@material-ui/icons/Chat';
 import AddIcon from '@material-ui/icons/Add';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -37,31 +35,23 @@ const Appbar = props => {
                         </IconButton>
                     </div>
                     <div className={!open ? 'toolbar__heading' : 'toolbar__heading shift'}>
-                        <Typography component="h1" variant="h5" color="inherit" noWrap>
-                            Admin Portal
-                        </Typography>
+                        <h1>Admin Portal</h1>
                     </div>
                     <div className="toolbar--notification">
-                        {/*<Link to={'/promotions/create-new'}>*/}
                         <IconButton
                             onClick={toggleCreateNew}
                             color="inherit"
-                            className={'toolbar--notification addbutton'}
+                            className={'toolbar--notification addbutton svg-icon'}
                         >
                             <AddIcon />
                             Create New
                         </IconButton>
-                        {/*</Link>*/}
                         <>{createNew && <CreatePromo close={toggleCreateNew} />}</>
-                        <IconButton color="inherit">
-                            <ChatIcon />
-                        </IconButton>
-                        <IconButton color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton color={'inherit'} onClick={logoutHandler}>
+                        <IconButton
+                            className={'svg-icon'}
+                            color={'inherit'}
+                            onClick={logoutHandler}
+                        >
                             <Link to={'/'}>
                                 <ExitToAppIcon />
                             </Link>

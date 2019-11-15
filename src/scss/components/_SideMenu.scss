@@ -1,5 +1,4 @@
 .side-menu {
-    transform: translateX(0);
     height: 100%;
     background: white;
     box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.3);
@@ -7,19 +6,20 @@
     top: 0;
     left: 0;
     width: $side-menu-width;
-    max-width: 40rem;
+    max-width: 160rem;
     z-index: 200; //sits on the top of the backdrop when then toogle menu is clicked
     overflow-x: hidden;
+    transform: translateX(-100%);
     transition: all 0.5s ease;
 
     &.open {
-        transform: translateX(-100%);
         transition: all 0.5s ease;
+        transform: translateX(0);
     }
 
     button {
-        margin-left: 1rem;
-        margin-top: 1rem;
+        margin-left: 4rem;
+        margin-top: 4rem;
         color: $color-black;
     }
 }

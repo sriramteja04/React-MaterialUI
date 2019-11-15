@@ -5,6 +5,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        transition: opacity linear 0.25s;
         background-color: rgba(0, 0, 0, 0.65);
         z-index: 1000;
     }
@@ -15,20 +16,17 @@
         left: 50%;
         transform: translate(-50%, -60%);
         background-color: #ffffff;
-        width: 42rem;
+        width: 168rem;
         margin: auto;
         height: auto;
-        padding: 2rem;
+        padding: 8rem;
         border-radius: 6px;
         box-shadow: 0 0 10px #00000088;
     }
     &__heading {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        font-family: 'Trasandina';
-        font-weight: bold;
+        margin-bottom: 4rem;
     }
     &__actions {
-        margin-top: 5rem;
+        margin-top: 20rem;
     }
 }

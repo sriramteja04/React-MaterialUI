@@ -4,16 +4,13 @@ import { Redirect, Link } from 'react-router-dom';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from '@material-ui/core/Card';
 
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import LockIcon from '@material-ui/icons/Lock';
 import HelpIcon from '@material-ui/icons/Help';
-
 import { login, disableError } from '../../../modules/Auth/Login/actions';
 import Button from '../../../common/se_button';
 import InputField from '../../../common/se_input_field';
+import Spinner from '../../../common/se_spinner';
 
 class SignIn extends React.Component {
     state = {
@@ -54,7 +51,7 @@ class SignIn extends React.Component {
     render() {
         // console.log('Login rendering.........',this.props);
         if (this.props.loading) {
-            return <CircularProgress disableShrink />;
+            return <Spinner />;
         }
 
         if (this.props.isAuth) {

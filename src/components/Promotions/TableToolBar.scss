@@ -1,39 +1,40 @@
 .promo-toolbar {
-    height: 5rem;
+    height: 20rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 75%;
+    font-size: 4rem;
     .toolbar-items-1 {
+        font-size: 4rem;
         &__heading {
             display: inline;
         }
 
         &__items {
-            margin-left: 1rem;
+            margin-left: 4rem;
         }
     }
     .toolbar-items-2 {
         .form-control {
-            width: 12rem;
+            width: 48rem;
             background-color: #ffffff;
 
             &.select-input {
-                //padding: 0.5rem;
             }
         }
 
         .column--btn {
             color: $font-color;
             background-color: #ffffff;
-            padding: 0.9rem;
+            padding: 3.6rem;
             box-shadow: none;
             border: 1px solid #ddd;
-            margin-left: 2rem;
+            margin-left: 8rem;
         }
 
         .switch {
-            margin-left: 2rem;
+            margin-left: 8rem;
         }
     }
 }

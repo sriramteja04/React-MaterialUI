@@ -1,19 +1,11 @@
-$spacingAmount: (1, 2, 3, 4, 5);
-
-@each $space in $spacingAmount {
-    .m-#{$space} {
-        margin: #{$space}rem;
+.svg-icon {
+    svg {
+        font-size: 7rem;
     }
+}
 
-    .my-#{$space} {
-        margin: #{$space}rem 0;
-    }
-
-    .mx-#{$space} {
-        margin: 0 #{$space}rem;
-    }
-
-    .p-#{$space} {
-        padding: #{$space}rem;
+.badge-number {
+    span {
+        font-size: 3rem;
     }
 }

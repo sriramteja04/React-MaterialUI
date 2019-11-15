@@ -1,12 +1,13 @@
 .btn {
-    min-width: 6rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    font-size: 0.8rem;
-    font-weight: 600;
+    min-width: 24rem;
+    padding: 0.5rem 4rem;
+    margin: 4rem;
+    font-size: 3.2rem;
+    font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
     border: none;
+    height: 10rem;
 
     &:focus {
         outline: none;
@@ -30,14 +31,14 @@
     }
 
     &.md {
-        width: 8rem;
+        width: 32rem;
     }
 
     &.lg {
-        width: 12rem;
+        width: 48rem;
     }
 
     &.xl {
-        width: 18rem;
+        width: 72rem;
     }
 }
