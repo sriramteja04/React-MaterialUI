@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FormControlLabel, Switch } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -32,6 +33,11 @@ class CreatePromo extends PureComponent {
     };
 
     cancelModalHandler = () => {
+        this.props.close();
+    };
+
+    saveHandler = () => {
+        this.props.history.push(`/promotions/${this.state.promo_name}`);
         this.props.close();
     };
 
@@ -74,6 +80,7 @@ class CreatePromo extends PureComponent {
                 <Button
                     className={show ? `btn btn-dark xl` : 'btn btn-disabled xl'}
                     disabled={!show}
+                    onClick={this.saveHandler}
                 >
                     SAVE
                 </Button>
@@ -87,4 +94,4 @@ class CreatePromo extends PureComponent {
     }
 }
 
-export default CreatePromo;
+export default withRouter(CreatePromo);

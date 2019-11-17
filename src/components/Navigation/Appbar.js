@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { CssBaseline, IconButton } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
 import { logout } from '../../modules/Auth/Login/actions';
+
 import CreatePromo from '../Promotions/Create Promo/CreatePromo';
 
 const Appbar = props => {
