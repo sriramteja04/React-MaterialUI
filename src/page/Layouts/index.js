@@ -31,7 +31,6 @@ class Layout extends React.Component {
 
     render() {
         console.log('inside main');
-        console.log(this.state.label);
         const { open } = this.state;
         return (
             <>
@@ -44,13 +43,6 @@ class Layout extends React.Component {
                     />
                 )}
                 {open && <Backdrop closeBackdrop={this.toggleBackdrop} />}
-
-                {this.state.label === 'Dashboard' && (
-                    <CreatePromo label={'Promotions'} close={this.closeHandler} />
-                )}
-                {this.state.label === 'Manage Promos' && (
-                    <CreatePromo label={'Promotions'} close={this.closeHandler} />
-                )}
                 {/*<Container maxWidth={'xl'} className={'App__container'}>*/}
                 <Container>{this.props.children}</Container>
             </>
