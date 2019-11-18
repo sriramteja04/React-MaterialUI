@@ -11,11 +11,9 @@ import AddIcon from '@material-ui/icons/Add';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import { logout } from '../../modules/Auth/Login/actions';
-import CreatePromo from '../Promotions/Create Promo/CreatePromo';
-import Dropdown from '../../common/se_dropdown';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import DraftsIcon from '@material-ui/icons/Drafts';
 // import ListAltIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import CreateNew from '../../common/createNew';
+import Backdrop from './Backdrop';
 
 const Appbar = props => {
     const { open, toggleHandler } = props;
@@ -24,22 +22,11 @@ const Appbar = props => {
         props.logout();
     };
 
-    const [createNew, setCreateNew] = useState(false);
-
     const [displayDropdown, setDisplayDropdown] = useState(false);
-
-    const toggleCreateNew = () => {
-        setCreateNew(!createNew);
-    };
 
     const toggleDropdown = () => {
         setDisplayDropdown(!displayDropdown);
     };
-
-    const listItems = [
-        { image: <ListAltIcon />, label: 'Promotions', onClick: toggleCreateNew },
-        { image: <DraftsIcon />, label: 'Message' },
-    ];
 
     return (
         <>
@@ -57,7 +44,6 @@ const Appbar = props => {
                         </Typography>
                     </div>
                     <div className="toolbar--notification">
-                        {/*<Link to={'/promotions/create-new'}>*/}
                         <IconButton
                             onClick={toggleDropdown}
                             color="inherit"
@@ -66,9 +52,8 @@ const Appbar = props => {
                             <AddIcon />
                             Create New
                         </IconButton>
-                        <>{displayDropdown && <Dropdown list={listItems} />}</>
-                        {/*</Link>*/}
-                        <>{createNew && <CreatePromo close={toggleCreateNew} />}</>
+                        <>{displayDropdown && <CreateNew closeDropdown={toggleDropdown} />}</>
+                        {displayDropdown && <Backdrop closeBackdrop={toggleDropdown} />}
                         <IconButton color="inherit">
                             <ChatIcon />
                         </IconButton>

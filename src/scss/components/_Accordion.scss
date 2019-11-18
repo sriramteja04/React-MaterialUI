@@ -1,0 +1,69 @@
+.menuItems {
+    &__list {
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 17rem;
+        overflow: auto;
+        top: 5rem;
+    }
+}
+
+.menuItem {
+    color: black;
+    padding: 0.75rem 1.8rem;
+    text-decoration: none;
+    display: block;
+    border: 1px solid #f2f2f2;
+    position: relative;
+    height: 4.5rem;
+    transition: all 0.4 ease;
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
+    &__content {
+        line-height: 3rem;
+    }
+    &__label {
+        margin-left: 1rem;
+        vertical-align: super;
+        font-size: large;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__arrow {
+        float: right;
+        margin-top: 0.7rem;
+    }
+}
+
+.subMenuClose {
+    opacity: 0;
+    max-height: 0;
+    overflow-y: hidden;
+}
+
+.subMenuOpen {
+    label {
+        margin-left: 2.5rem;
+        color: black;
+        line-height: 1.8rem;
+        &:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+}
+
+.open {
+    height: 9rem;
+    background-color: #f1f1f1;
+    border-left: 4px solid #2f7a58;
+    cursor: pointer;
+    position: relative;
+    .menuItemLabel {
+        color: #2f7a58;
+        font-weight: bold;
+    }
+}

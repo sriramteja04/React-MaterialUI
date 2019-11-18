@@ -27,6 +27,11 @@ const theme = createMuiTheme({
                 color: '#2f7a58',
             },
         },
+        MuiFormControl: {
+            root: {
+                margin: '10px',
+            },
+        },
     },
 });
 
@@ -39,6 +44,7 @@ const useStyles = makeStyles(theme => ({
             borderColor: '#2f7a58',
             borderWidth: 2,
         },
+        margin: '10px',
     },
     notchedOutline: {},
     focused: {},
@@ -59,7 +65,6 @@ const DatePicker = props => {
         <MuiThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
-                    className={'date_picker'}
                     format="MMM dd, yyyy"
                     margin="normal"
                     id="date-picker-dialog"

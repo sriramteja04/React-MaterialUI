@@ -5,6 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Modal from '../../../common/Modal/se_modal';
 import InputField from '../../../common/se_input_field';
 import Button from '../../../common/se_button';
+import { strings } from '../../../strings';
 
 class CreatePromo extends PureComponent {
     state = {
@@ -32,7 +33,8 @@ class CreatePromo extends PureComponent {
     };
 
     cancelModalHandler = () => {
-        this.props.close();
+        const { label } = this.props;
+        this.props.close(label);
     };
 
     render() {
@@ -40,14 +42,14 @@ class CreatePromo extends PureComponent {
 
         let header = (
             <div>
-                <h2 className={'promo--heading'}>Create a new promo</h2>
+                <h2 className={'promo--heading'}>{strings.createNewPromo}</h2>
                 <CloseIcon className={'close--icon'} onClick={this.cancelModalHandler} />
             </div>
         );
         let content = (
             <div className={'content'}>
                 <InputField
-                    label={'Create a New Promo'}
+                    label={strings.createNewPromo}
                     value={promo_name}
                     onChange={this.changeHandler}
                     type={'text'}
@@ -69,13 +71,15 @@ class CreatePromo extends PureComponent {
         let actions = (
             <>
                 <Button className={'btn btn-light xl'} onClick={this.cancelModalHandler}>
-                    CANCEL
+                    {' '}
+                    {strings.cancel}{' '}
                 </Button>
+
                 <Button
                     className={show ? `btn btn-dark xl` : 'btn btn-disabled xl'}
                     disabled={!show}
                 >
-                    SAVE
+                    {strings.save}
                 </Button>
             </>
         );

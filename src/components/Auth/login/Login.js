@@ -139,6 +139,9 @@ const mapStateToProps = state => ({
     error: state.get('error'),
 });
 
+// todo use mapDispatchToProps
+// todo Use containers
+// todo stick to const as much as possible
 export default connect(
     mapStateToProps,
     {

@@ -47,6 +47,7 @@ const useStyles = makeStyles(theme => ({
             borderColor: '#2f7a58',
             borderWidth: 2,
         },
+        margin: '10px',
     },
     notchedOutline: {},
     focused: {},

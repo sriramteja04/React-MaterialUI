@@ -3,9 +3,14 @@ import React from 'react';
 const Dropdown = props => {
     const { list } = props;
     return (
-        <ul id="myDropdown" className={'dropdown-content'}>
+        <ul className={'dropdown__content'}>
             {list.map(item => (
-                <li className={'list'} onClick={item.onClick}>
+                <li
+                    className={'dropdown__list'}
+                    onClick={() => {
+                        item.onClick(item.label);
+                    }}
+                >
                     <>{item.image}</>
                     <label>{item.label}</label>
                 </li>
